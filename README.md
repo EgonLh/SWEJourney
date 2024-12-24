@@ -74,5 +74,3 @@
 
 - Achieved on `November 30, 2024` 
 - Totally `8 months 16 days`
-
-"# SWEJourney" 
