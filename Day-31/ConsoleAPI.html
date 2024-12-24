@@ -1,0 +1,79 @@
+<html>
+    <script>
+        console.log("log");
+        console.debug("debug")
+        console.info("Info")
+        console.warn("Warn")
+        console.error("Error")
+        console.assert(1===2,"Assert Code")
+        // usecase
+        function display(msg1,msg2)
+        {
+            console.assert(arguments.length===2,"Invalid Parameter")
+        }
+
+        display("One")
+
+        display("One","Tow")
+
+        let arr = [1,2,3,4]
+        console.table(arr)
+        let obj = {
+            name : "ZYH",
+            age : 20
+        }
+        console.table(obj)
+
+        function one()
+        {
+            two();
+        }
+
+        function two()
+        {
+            three();
+        }
+    function three()
+    {
+        console.trace("Three");
+    }
+    one()
+    console.time("Timer1");
+
+    for(let i = 0; i<10;i++)
+    {
+        console.count('Hello');
+    }
+    
+    console.count('Hello');
+    console.countReset("Hello");
+
+    console.count('Hello');
+
+    console.group("Level 1")
+    console.log("Inside Level 1");
+
+    console.group("Level 1.1")
+    console.log("Inside Level 1.1");
+
+    console.group("Level 2")
+    console.log("Inside Level 2.1");
+    
+    console.groupEnd();
+    console.groupEnd();
+    console.groupEnd();
+
+
+    console.log("Group Ended Here!");
+
+    console.timeLog("Timer1","Elapsed Slip");
+    console.timeEnd("Timer1")
+
+    console.log("Timer 1 Ended");
+
+    console.log("Console Formatted Output");
+    console.log("%s %d world ","Hello",21.2);
+    console.log("%s %f world ","Hello",21.2);
+
+    </script>
+</html>

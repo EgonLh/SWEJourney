@@ -1,0 +1,39 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.js"></script>
+
+    <script>
+        console.log("Group");
+        const arr = [
+            {
+                name : "Aung Min",
+                age : 14,
+                gender : 'Male'
+            },
+            {
+                name : "Aung Naing",
+                age : 24,
+                gender : 'Male'
+            },
+            {
+                name : "Hla Hla",
+                age : 34,
+                gender : 'Female'
+            },
+            {
+                name : "Mg Hla",
+                age : 20,
+                gender : 'Male'
+            },
+        ];
+
+        function api(){
+            return arr;
+        }
+
+        const getFirst = R.prop(0);
+        const getAge = R.prop('age');
+        let getDate = R.pipe(getFirst,getAge);
+        console.log(getDate(api()));
+    //    console.log(getFirst());
+    </script>
+</html>

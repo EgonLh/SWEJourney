@@ -1,0 +1,50 @@
+<html>
+    <script>
+        console.log("Sort In Array Object : Con't");
+
+        let objArr = [
+            {
+                name : "Ei Ei",
+                age  : 12
+            },
+            {
+                name : "Bo Bo",
+                age  : 10
+            },
+            {
+                name : "Aung Win",
+                age  : 11
+            },
+            {
+                name : "Peter",
+                age  : 66
+            },
+            {
+                name : "Maung Maung",
+                age  : 3
+            },
+            {
+                name : "A   ayar",
+                age  : 12
+            },
+        ]
+
+    console.log("Unsortted Object :",objArr);
+
+    console.log("Sorrted Object {simple} :",objArr.sort());
+
+    function sortByAge(objA, objB){
+        if(objA.age == objB.age)
+        {
+            return objA.name.localeCompare(objB.name);
+        }
+        else
+        {
+            return objA.age - objB.age;
+        }
+    }
+
+    console.log("Sortted By Age => same => Name", objArr.sort( sortByAge ));
+    console.log("Reverse Array :", objArr.reverse());
+    </script>
+</html>

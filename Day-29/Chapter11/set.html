@@ -1,0 +1,30 @@
+<html>
+    <script>
+        console.log("Set and Map");
+        let a = new Set([1,2,3,1,2,3,4])
+        console.log("Set :",a);
+
+        let name = new Set("Misssisspissp");
+        console.log('name :',name);     
+        console.log("Size :",name.size);
+        name.add('4');
+        name.add('M');
+
+        name.delete('s');
+
+        console.log("Name after add and delete :",name);
+        // name.clear();
+        // console.log("Clear :",name);
+
+        console.log('has(1) :',name.has('M'));
+        console.log('has(1) :',name.has(4));
+
+        for(const item of name)
+        {
+            console.log("Item of  :",item);
+        }
+
+        let arr = [...name];
+        console.log("Set to array",arr);
+    </script>
+</html>

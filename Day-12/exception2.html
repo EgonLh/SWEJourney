@@ -1,0 +1,28 @@
+<script>
+// debugger;
+  console.log("Exception");
+  function div(a, b) {
+    if ((a == 0) & (b == 0)) {
+      throw new Error(" Can't Handle 0 value");
+    } else {
+      return a / b;
+    }
+  }
+
+function another(){
+      try {
+    let data = div(10, 2);
+    console.log("Div ", data);
+    return data;
+  } catch (e) {
+    console.log("Error Invoded",e.message);
+    console.log("Start Here");
+    return 100;
+  }finally{
+    console.log("End-Finally");
+    return 200;
+  }
+}
+  let result = another()
+  console.log(result);
+</script>

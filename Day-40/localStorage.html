@@ -1,0 +1,36 @@
+<html>
+    <body>
+        <div id="DivContainer">
+            Local Storage
+        </div>
+        
+    </body>
+    <script>
+        let name = localStorage.username;
+        if(!name)
+        {
+            name = prompt("Say Your Name :");
+            localStorage.username = name;
+        }
+        console.log("Name :",name);
+        
+        let obj = {
+            name : "Hello",
+            age : 30,
+        }
+
+        localStorage.info = JSON.stringify(obj);
+
+        // let obj1 = localStorage.info;
+        // console.log("String Obj ",typeof(obj1));
+
+        let ob_j =JSON.parse(localStorage.info);
+        console.log("Object :",ob_j);
+
+        window.addEventListener('storage',(event)=>{
+            console.log(event);
+            console.log(event.key);
+            console.log(event.newValue);
+        })
+    </script>
+</html>

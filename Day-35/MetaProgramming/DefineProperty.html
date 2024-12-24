@@ -1,0 +1,36 @@
+<html>
+    <script>
+        let obj = {}
+
+        Object.defineProperty(obj,"x",{
+            // value : 1,
+            configurable : true,
+            // writable : false,
+            enumerable : false,
+            get()
+            {
+                return 200;
+            },
+            set(newValue)
+            {
+                obj._x = newValue;
+            }
+        });
+
+        console.log(obj.x);
+
+        obj.x = 100;
+        console.log("Writable : ",obj.x);
+
+        for(const a in obj)
+        {
+            console.log(a);
+        }
+
+        // delete obj.x
+        console.log("Configure :",obj.x);
+
+
+        console.log(obj.x);
+    </script>
+</html>

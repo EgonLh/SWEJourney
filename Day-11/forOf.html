@@ -1,0 +1,61 @@
+<script>
+  let arr = [1, 2, 3, 4, 5];
+
+  for(const item of arr)
+  {
+      console.log(item);
+      }
+  console.log(arr);
+//   allman indentation
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) 
+  {
+    // total += arr[i];
+    console.log(arr[i]);
+    arr[i] *= 2
+  }
+  console.log(arr);
+
+
+//   
+console.log(" For/Of in Object\n ");
+let obj = 
+{
+    name : " ZYH ",
+    age : 19,
+    addr: "Pyay",
+}
+// For Object Values
+for( const val of Object.values(obj))
+{
+    console.log(" value :", val );
+}
+console.log("\n");
+// For Object's keys
+for( const key of Object.keys(obj))
+{
+    console.log(" key   :", key );
+    console.log(" value :", obj[key] );
+
+}
+
+//  Testing
+// let newobj = {
+//     a:1,
+//     b:2
+// }
+// newarr =[1,2]
+// let [x,y]=newarr;
+// console.log(x,y);
+// let [ac,ba]=Object.entries(newobj);
+// console.log(ac);
+// console.log(typeof ac);
+
+// For both value and key
+for( const [key,val] of Object.entries(obj) )
+{
+    console.log(key ,":", val);
+}
+
+
+</script>

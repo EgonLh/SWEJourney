@@ -1,0 +1,116 @@
+<html>
+    <script>
+        console.log("Group");
+        
+let arr = [
+    {
+        name : "Aung Aung",
+        age : 20,
+        gender : "Male",
+        city : "Ygn",
+    },
+    {
+        name : "Maung Aung",
+        age : 12,
+        gender : "Male",
+        city : "Kalaw",
+    },
+    {
+        name : "Maung Maung",
+        age : 31,
+        gender : "Male",
+        city : "Pyay",
+
+    },
+    {
+        name : "Khin Myint",
+        age : 31,
+        gender : "Female",
+        city : "Ygn",
+    },
+    {
+        name : "Moe Moe",
+        age : 20,
+        gender : "Female",
+        city : "Pyay",
+    },
+    {
+        name : "Tin Aung",
+        age : 32,
+        gender : "Male",
+        city : "Mdy",
+
+    },
+]
+
+
+// imperative approach;
+let group = {};
+for (let obj of arr) {
+   if(!group[obj.gender])
+   {
+    group[obj.gender] = [obj];
+   }
+   else
+   {
+    group[obj.gender].push(obj)
+   }
+}
+
+console.log(group);
+
+
+// functional approach
+console.log("Functional approach");
+//  pure function
+group = arr.reduce((group,obj)=>{
+    if(!group[obj.gender])
+   {
+    // group[obj.gender] = [obj];
+    // to make pure function
+    return {
+        ...group,
+        [obj.gender]:[obj]
+    }
+   }
+   else
+   {
+    return {
+        ...group,
+        [obj.gender]:[...group[obj.gender], obj]
+    }
+   }
+    return group;
+},{})
+
+console.log(group);
+
+
+function groupBy(arr,prop){
+    return  arr.reduce((group,obj)=>{
+    if(!group[obj[prop]])
+   {
+    return {
+        ...group,
+        [obj[prop]]:[obj]
+    }
+   }
+   else
+   {
+    return {
+        ...group,
+        [obj[prop]]:[...group[obj[prop]], obj]
+    }
+   }
+},{})
+}
+const groupCity = groupBy(arr,'city');
+console.log("City: ",groupCity);
+console.log("Gender: ",groupBy(arr,'gender'));
+console.log("Age: ",groupBy(arr,'age'));
+
+
+
+
+    </script>
+</html>

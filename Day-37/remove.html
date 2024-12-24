@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <div id="container">
+            <code>Container</code>
+        </div>
+        <button type="button" id="btnRemove">Remove</button>
+    </body>
+    <script>
+        let hander1 = n => console.log("Event :",n);
+
+        document.getElementById('container').addEventListener('click',hander1);
+
+        document.getElementById('btnRemove').addEventListener('click',()=>{
+            document.getElementById('container').removeEventListener('click',hander1)
+        })
+
+    </script>
+</html>

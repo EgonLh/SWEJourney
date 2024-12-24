@@ -1,0 +1,37 @@
+<html>
+    <script>
+        let objArr = [
+            {
+                name : "Zayar",
+                age : 20,
+                callme(){
+                    console.log("Zayar Htun");
+                }
+            },
+            {
+                name : "Htun",
+                age : 21,
+                callme(){
+                    console.log("Htun Htun");
+                }
+            },
+            {
+                name : "Yar Yar",
+                age : 10,
+                callme(){
+                    console.log("Yar Htun");
+                }
+            },
+            {
+                name : "Toe Toe",
+                age : 22,
+                callme(){
+                    console.log("Toe Toe");
+                }
+            },
+        ]
+
+        let names = objArr.map(obj => obj.name);//no need loop
+        console.log(names);
+    </script>
+</html>

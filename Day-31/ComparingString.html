@@ -1,0 +1,13 @@
+<html>
+    <script>
+        console.log("Comparing String");
+
+        console.log("Apple Vs Orange :",'apple'.localeCompare('orange'));
+        const collator = new Intl.Collator().compare;
+        console.log(["a","z","A","Z"].sort(collator));
+
+        const filenameOrder = new Intl.Collator(undefined,{ numeric: true}).compare;
+        console.log(["page10","page09"].sort(filenameOrder));
+        
+    </script>
+</html>

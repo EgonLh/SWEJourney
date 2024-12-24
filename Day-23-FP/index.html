@@ -1,0 +1,48 @@
+<html>
+  <!-- Ramda -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.js"></script>
+
+  <script>
+    console.log("Hello, World!");
+
+    // x = a/2
+    // 
+    let newFunc = R.divide(10)(2);
+    
+    console.log(newFunc);
+
+    // x = a => a/2 + 3
+    let newFun = R.pipe(R.flip(R.divide)(2),R.flip(R.add)(3))
+    console.log("New Func :",newFun(10));
+
+
+    let a = [1,2,3,4,5];
+    // can't copomse thus use converge
+    let result = R.divide(R.sum(a))(R.length(a));
+    console.log("Result :",result);
+
+    // converage(3,[1,2])
+    const average = R.converge(R.divide, [R.sum,R.length]);
+    console.log("Average :",average(a));
+
+    // count
+    const even = x => x%2 == 0
+    const noOfEven = R.count(even)(a);
+    console.log("Number of Even :",noOfEven);
+
+    // defaultTo
+    const defaultTo42 = R.defaultTo(42);
+
+    console.log(defaultTo42(null));
+    console.log(defaultTo42(undefined));
+
+    // always
+    const t = R.always('Tee');
+    console.log(t());    
+
+    // range
+    let range = R.range(1, 5);
+    console.log(range);
+    
+  </script>
+</html>

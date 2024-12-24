@@ -1,0 +1,11 @@
+<script>
+  let posZero = 0;
+  let negZero = -0;
+
+  console.log("0 == -0 ", posZero == negZero);
+
+  let posInfinity = 1 / posZero;
+  let negInfinity = 1 / negZero;
+
+  console.log("1/0 !== 1/-0", posInfinity == negInfinity);
+</script>

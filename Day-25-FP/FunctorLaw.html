@@ -1,0 +1,51 @@
+<html>
+    <!-- Ramda -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.js"></script>
+
+    <script>
+
+        const inc = x => x + 1;//counter  ++
+        const double = x => x*2;
+
+        let Container = (value) => ({
+            map(fn){
+                // apply
+                return Container(fn(value));
+            },
+            valueOf()//unwrap
+            {
+                return value;
+            },
+           
+        });
+
+        
+        // law 1
+        Container.of = Container;
+        let counter = Container.of(100);
+
+        console.log("ValueOf Counter", counter.valueOf());
+        console.log("ValueOf Counter", counter.map(R.identity).valueOf());
+
+    
+
+        console.log("Law 1 ", counter.map(R.identity).valueOf() == counter.valueOf());
+
+        // law 2
+        // F(g.f) = F(f).F(g)
+
+        let composeFun  = R.compose(double,inc);
+        let result1 = counter.map(composeFun);
+        let result2  = counter.map(inc).map(double);
+
+        console.log("ValueOf Composed Func", result1.valueOf());
+        console.log("ValueOf Individual Map", result2.valueOf());
+        console.log("Law 2 ",result1.valueOf() == result2.valueOf());
+
+
+
+
+
+
+    </script>
+</html>

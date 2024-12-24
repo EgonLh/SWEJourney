@@ -1,0 +1,25 @@
+<html>
+    <script>
+        console.log("Rest Parameter");
+        function restpara(a=-Infinity,...b)
+        {
+            console.log("Arguments :",arguments);
+            console.log("First :",a);
+            console.log("Rest :",b);
+            console.log("Type of",typeof b);
+        }
+
+        restpara("Hello","World","JavaScript","Invoked")
+
+
+        function display(a,b)
+        {
+            console.log(a);
+            console.log(b);
+
+        }
+
+        let arr = [1,2,3,4];
+        display(...arr);
+    </script>
+</html>

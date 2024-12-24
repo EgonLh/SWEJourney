@@ -1,0 +1,77 @@
+<script>
+  let obj = {
+    a: 1,
+    b: 2,
+    arr: [1, 2],
+  };
+  // let a = 4;
+  // let b = 20;
+  // obj = {a,b};
+
+  console.log("Shorthened Extended :", obj);
+
+  //   let obj2 = {};
+  // a = 1;
+  // b = 2;
+  // obj2 = {a,b};
+
+  // console.log(obj2);
+
+  // Symbolas as properties
+  // let obj3 = {};
+  // a = 1;
+  // b = 2;
+  // obj3= {a,b};
+
+  // console.log(obj3);
+
+  let a = Symbol("Hello");
+  let b = Symbol("Hello");
+  console.log("Testing Symbol :", a == b);
+  let obj4 = {
+    [Symbol("name")]: "Hello",
+  };
+  console.log(obj4);
+  console.log(Object.getOwnPropertySymbols(obj4));
+
+
+  // Spread
+  let newspread = JSON.parse(JSON.stringify(obj));
+
+  let spread_shallow = { ...obj };
+  obj.arr.push(2);
+  console.log("Spread (Shallow Clone) :", spread_shallow);
+
+  // Increase Step
+
+  console.log(newspread);
+  console.log("Increase Spread (Shallow Clone ):", spread_shallow);
+
+  console.log("Shorthened Extended :", obj);
+
+
+  // Deep clone
+  let original = {
+    a:1,
+    b:2,
+    c:[1,2]
+  }
+  //primitive type - copy semetic
+  console.log("Original Before Increasement :",original);
+  let clone0 = {...original};//shallow 
+  let clone1 = JSON.parse(JSON.stringify(original));//deep
+  original.c.push(1);
+  original.a="Increase";
+  console.log("Origianl :",original);
+  console.log("Shallow Clone :",clone0);
+  console.log("Deep Clone :",clone1);
+
+
+  // Shorthand method
+  let shrothand_meth = {
+    display(){
+      console.log("Hello, World");
+    }
+  }
+  shrothand_meth.display();
+</script>

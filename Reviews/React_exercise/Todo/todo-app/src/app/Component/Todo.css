@@ -1,0 +1,13 @@
+select {
+    /* for Firefox */
+    -moz-appearance: none;
+    /* for Safari, Chrome, Opera */
+    -webkit-appearance: none;
+}
+/*button{*/
+/*    margin: 0px 2px;*/
+/*    border : 1px solid rgba(128, 128, 128, 0.57);*/
+/*    padding: 4px;*/
+/*    border-radius: 3px;*/
+/*    box-shadow: 1px 1px 4px 4px rgba(226, 239, 255, 0.54);*/
+/*}*/

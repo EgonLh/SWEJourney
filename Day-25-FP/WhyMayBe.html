@@ -1,0 +1,47 @@
+<html>
+    <!-- Ramda -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.js"></script>
+    
+    <script>
+
+        /*
+        // imperative requirment
+        if(str  !== null or str !== undefined)
+        */
+        const toUpper = (str) => str.toUpperCase();
+        const appendHi = (str) => str + ' hi';
+
+        let MayBe = (value) => ({
+            map(fn){
+                // Main idea
+                return !this.isNothing()?MayBe(fn(value)):MayBe(null);
+            },
+            isNothing(){
+                return value === null || value == undefined;
+            },
+            valueOf()//unwrap
+            {
+                return value;
+            },orElse(defaultValue){
+                return this.isNothing()?MayBe(defaultValue):MayBe(value);
+            }
+           
+        });
+
+        MayBe.of = MayBe;
+        let str = null;
+        let func = MayBe.of(str);
+
+        let result = func.map(toUpper).map(appendHi).valueOf();
+        let result1 = func.map(toUpper).map(appendHi).orElse(' ').valueOf();
+
+
+        console.log("Is Nothing :",result);
+        console.log("Or Else :",result1);
+
+
+        // problem ToUpper , ... AppendHi
+
+        // console.log("Problem :", appendHi(toUpper(null)));
+    </script>
+</html>

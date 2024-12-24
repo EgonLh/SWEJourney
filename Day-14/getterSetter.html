@@ -1,0 +1,52 @@
+<script>
+
+    console.log("Getter & Setter");
+
+    let obj = {
+        name : "Zayar Htun",
+        _age :20,//private
+        get age(){
+            console.log("Getter ,",this._age);
+            return this._age;
+        },
+
+        
+    }
+
+    obj.age = 200; // problem,
+
+let a = obj.age;
+console.log(a);
+
+// another usecase
+let circle = {
+    radius : 100,
+    get area(){
+        return Math.PI * this.radius * this.radius;
+    }
+}
+
+console.log("Get Area :",circle.area);
+
+
+// setter
+let person = {
+    name : "Person",
+    _age :"20",
+    get age (){
+        return this._age;
+    },
+    set age(newValue){
+        if( 0<newValue && newValue<100){
+            this._age = newValue;
+        }else{
+            
+        }
+    }
+}
+console.log("Person Before Setter ",person);
+
+
+person.age=201;
+console.log("Person After Setter",person);
+</script>

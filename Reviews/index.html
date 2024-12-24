@@ -1,0 +1,97 @@
+<html>
+  <script>
+    console.log("Reviews");
+    // IEEE format -> sign bit in binary cause zero positive and negative
+
+    console.log("\t\t\t\tDay 4");
+    let posZero = 0;
+    let negZero = -0;
+
+    console.log("Positive Zero == Negative Zero", posZero == negZero); //true
+
+    let posInfinity = 1 / 0;
+    let negInfinity = 1 / -0;
+
+    console.log(
+      "Positive Infinity == Negative Infinity",
+      posInfinity == negInfinity
+    ); //false
+
+    console.log("Rounding Error IN JavaScript");
+
+    // Cause Binary is diving with irrational numbers
+    // Thus
+
+    console.log("Rounding Error in Irrational (0.6/0.3 - 0.2 ):", 0.3 - 0.2);
+
+    // According to IEEE 7.4 format,
+    // store exponet  and mantisaa in different part => |--exponent--| --mantisaa-- |
+    // for 0.6 => divided with 2 to change binary => take rounded numbers
+
+    console.log("Solution: Big Int");
+    // can store a lot of value
+    // but slow in theorical speed
+    // can work arithimci operation with same data type BigInt
+    // provides a way to represent whole numbers larger than the maximum safe integer limit (Number.MAX_SAFE_INTEGER).
+
+    let a = "1" + "0".repeat(100);
+    let b = BigInt(100000);
+    console.log(a);
+    console.log(BigInt(a));
+    console.log(typeof a);
+
+    let c = 3.0 - 2.0;
+    console.log(c);
+    console.log(BigInt(c));
+
+    const regularInteger = 9007199254740992; // 2^53
+    console.log(regularInteger + 1); // 9007199254740992 (loses precision)
+
+    const bigIntInteger = 9007199254740992n; // 2^53
+    console.log(bigIntInteger + 1n); // 9007199254740993 (preserves precision)
+
+    console.log("Date , Time");
+
+    let date = new Date();
+    let str = date.toDateString();
+    let month = date.getUTCMonth();
+    let day = date.getDay();
+    let time = date.getHours();
+    let ms = date.getTime();
+    console.log("new Date :", date);
+    console.log("Get Month :", month); //feb = 1
+    console.log("Get Days :", day); //Sunday - Saturday : 0 - 6
+    console.log("Get Time :",time);//hours
+    console.log("Get MillieSecond :",ms);//milliseconds
+
+    console.log("Type of date:",typeof date);
+
+    console.log("Tyoe of parts",typeof ms);
+
+
+    let gettingDate = new Date(ms);
+    console.log("Getting Date Back from millieseond:",gettingDate);
+
+
+    let anotherDate = new Date();
+    let formattedDate0 = anotherDate.toLocaleDateString();
+    let formattedDate1 = anotherDate.toISOString();
+    let formattedDate2= anotherDate.toDateString();
+    let formattedDate3= anotherDate.toUTCString();
+
+
+    console.log("LocalDate String:",formattedDate0);
+    console.log("To ISO String   :",formattedDate1);
+    console.log("To Date String  :",formattedDate2);
+    console.log("To UTC String  :",formattedDate3);
+
+
+    /* To Know what are object?
+        1. Have New Contructor
+        2. Having Method
+        3. Can't have in primitive.
+    */ 
+
+
+  </script>
+</html>

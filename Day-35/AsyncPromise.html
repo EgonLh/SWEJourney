@@ -1,0 +1,39 @@
+<html>
+    <script>
+        console.log("AsyncPromise");
+
+        // await funtion
+        async function getData()
+        {
+            return 200;
+        }
+
+        // promise return function
+        function getPrmiseData()
+        {
+            return Promise.resolve(200);
+        }
+
+        // Normal Function
+        function normalFunction()
+        {
+            return 400;
+        }
+        async function test()
+        {
+            console.log(getData());
+            getData()
+                .then(console.log)
+
+            let data2 = await getPrmiseData();
+            console.log(getPrmiseData());
+            console.log("Data 2 :",data2);
+
+            let data3 = await normalFunction();
+            console.log("Data :",data3);
+        }
+
+
+        test()
+    </script>
+</html>

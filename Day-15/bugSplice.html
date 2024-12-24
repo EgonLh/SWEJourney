@@ -1,0 +1,23 @@
+<html>
+    <script>
+        // bug case
+        let arr = [1,2,3,4,5,6];
+        let arrayToDelete = [3,5];
+        for(const index of arrayToDelete){
+            arr.splice(index,1);
+        }
+
+        console.log("Bug Case Result :",arr);
+
+
+        // solution
+        let newArr = [1,2,3,4,5,6];
+        arrayToDelete.sort();
+        arrayToDelete.reverse();
+        console.log(arrayToDelete);
+        for(const index of arrayToDelete){
+            newArr.splice(index,1); 
+        }
+        console.log("Bug Case Solution :",newArr);
+    </script>
+</html>

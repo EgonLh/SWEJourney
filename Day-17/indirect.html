@@ -1,0 +1,41 @@
+<html>
+    <script>
+        console.log("Indirect Invocation");
+
+        let obj = {
+            name : "Egon",
+            display(message)
+            {
+                console.log("This -",this);
+                console.log("This is user -",this.name,". Message -",message);
+            }
+        }
+
+        // indirect invocation
+        console.log("Indirect Invocation's Problem");
+
+        let log1 = obj.display;
+
+        log1?.("message");
+
+        // solution with call()
+        console.log("Solution");
+        log1.call(obj,"Log-1");
+
+        // borrowing 
+        let obj2 = {
+            name :"CRPF"
+        }
+        let log_1=obj.display;
+        log_1.call(obj2,"borrowing");
+
+        // // solition with Apply
+        // let arr = [1,2,3,-1,-2,-4];
+        // console.log("Old Ways",Math.min.apply(Math,arr));
+
+
+        // console.log("New Ways",Math.min(...arr));
+
+        // console.log("Hello");
+    </script>
+</html>

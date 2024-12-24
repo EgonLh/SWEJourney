@@ -1,0 +1,68 @@
+<html>
+    <style>
+        #divContainer{
+            background-color: red;
+        }
+        .class_2{
+            color: green;
+        }
+        .class_3{
+            font-size: 30px;
+        }
+    </style>
+    <body>
+        <div id="parent" class="class_1">
+            <div id="child" class="class_2">
+                Hello, World
+            </div>
+            <div id="another">
+                Another
+            </div>
+            <div id="other">
+                Other
+            </div>
+        </div>
+        <div id="divContainer" background="blue" class="class_3">
+            Background
+        </div>
+        <table border="2">
+            <tbody id="tblData">
+                <tr data-tid="1">
+                    <td> 1</td>
+                    <td> One</td>
+                </tr>
+                <tr data-tid="2">
+                    <td> 2</td>
+                    <td> Two</td>
+                </tr>
+                <tr data-tid="3">
+                    <td> 3</td>
+                    <td> Three</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+    <script>
+        let divContainer= document.getElementById("divContainer");
+        console.log("Background Change :",divContainer.background);
+        
+        divContainer.removeAttribute('background');
+
+        console.log("ClassList :",divContainer.classList);
+
+        divContainer.classList.add("class_2");
+        divContainer.classList.remove("class_3");
+
+        document.querySelector('#tblData').addEventListener('click',(event)=>{
+            console.log("Click",event.target);
+            let row = event.target.closest('tr');
+            console.log(row.dataset.tid);
+        })
+
+    </script>
+    <!-- <style>
+        #divContainer{
+            background-color: rgb(64, 56, 56);
+        }
+    </style> -->
+</html>

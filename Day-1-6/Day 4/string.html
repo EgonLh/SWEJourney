@@ -1,0 +1,79 @@
+<script>
+    let str = 'Hello World ';
+    console.log(str.toLocaleUpperCase);
+    console.log(str);
+
+
+    // String concat
+    let name = "ZYH";
+
+    console.log(str + 10 +101);
+
+
+    // There has some bugs
+    let a=10;
+    let issue=a.toString();
+    console.log('Num to string',issue," typeof ",typeof issue);
+
+    // 
+    // let b=10.toString();
+    let b=10..toString();
+    console.log('bugs ,',b);
+
+    // property
+    let str_1='1😀';
+    console.log(str_1.length);
+
+
+    // substirng
+    let subb = 'Egon';
+    console.log('SubString ',subb.substring(2));
+
+    // uppercase/lowercase
+    // split
+    let myName="Zay Yar Htun";
+    console.log(myName.split(" "));
+    
+
+    // slite
+    console.log(myName.slice(-3,-2));
+
+    // Indexof
+    console.log(subb.indexOf('o'));
+    console.log(subb.indexOf('h'));
+
+
+    // lastIndexof
+    let ohh="welcome to my world bby";
+    console.log(ohh.lastIndexOf('l'));
+
+
+    // from middle
+    console.log(ohh.indexOf('l',1));
+
+//  start with
+let usrName='admin';
+console.log(usrName.toUpperCase().startsWith('A'));
+console.log(usrName.toLocaleLowerCase().endsWith('n'));
+
+let adminName='Egon  ';
+// console.log(adminNAme.endsWith('n')); space
+console.log(adminName.trim().endsWith('n'));
+
+// include
+console.log(adminName.includes('E'));
+// replace
+console.log(adminName.replace('E','0'));
+// repeat
+console.log(adminName.repeat(10));
+
+// charCodeat
+console.log(adminName.charCodeAt(1));
+
+// pod
+console.log(adminName.padStart(10));
+console.log(adminName.padEnd(10));
+
+
+</script>
+

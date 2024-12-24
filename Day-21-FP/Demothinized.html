@@ -1,0 +1,19 @@
+<html>
+    <script>
+        console.log("Demethodinized");
+
+        const demethodinized = fn => (...args) => fn.bind(...args)();
+        const map = demethodinized(Array.prototype.map);
+        const toUpperCase = demethodinized(String.prototype.toUpperCase);
+        const toLowerCase = demethodinized(String.prototype.toLocaleLowerCase)
+        name = "hello";
+        const result = map(name,toUpperCase)
+        console.log(result);
+
+        id = "EGON";
+        const idd = map(id  ,toLowerCase);
+        console.log(idd);
+
+       
+    </script>
+</html>

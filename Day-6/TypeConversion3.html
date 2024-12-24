@@ -1,0 +1,40 @@
+<script>
+    let obj = {
+        name : 'ZYH',
+        age:19,
+        method(){
+            console.log("This is method");
+            return 1;
+        },
+        toString(){
+            return true;
+        },
+        // valueOf(){
+        //     return 'false';
+        // }
+        // valueOf(){
+        //     return [];
+        // },
+        test(){
+
+        }
+    };
+
+    // overwriting can change the operation
+    console.log('Object     :',obj);
+    console.log('Object :',''+obj);
+    console.log('Object with tostring :',''+obj.toString());
+
+
+    // any object - > true
+    console.log('!! Object :',!!obj);
+    console.log('Object :',!!obj);
+   
+
+    // object - number
+    console.log('+object :',+obj);
+    console.log('+object :',''+obj);
+
+
+
+</script>

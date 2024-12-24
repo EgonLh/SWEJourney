@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2042ab02-75d5-43a5-9458-61f051dced39" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="2ixk4GNgZxeZmAwFoaPHn0WZxhH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2042ab02-75d5-43a5-9458-61f051dced39" name="Default Changelist" comment="" />
+      <created>1720439422363</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1720439422363</updated>
+      <workItem from="1720439423710" duration="2681000" />
+      <workItem from="1721051189110" duration="96000" />
+      <workItem from="1721139801792" duration="1448000" />
+      <workItem from="1721216809994" duration="140000" />
+      <workItem from="1721395348762" duration="156000" />
+      <workItem from="1721395514264" duration="186000" />
+      <workItem from="1721395715876" duration="24000" />
+      <workItem from="1721743033436" duration="2758000" />
+      <workItem from="1721821268872" duration="16000" />
+      <workItem from="1722060922478" duration="9187000" />
+      <workItem from="1722171108709" duration="982000" />
+      <workItem from="1722240239463" duration="1295000" />
+      <workItem from="1722257078678" duration="55000" />
+      <workItem from="1722426972500" duration="9000" />
+      <workItem from="1722476709175" duration="386000" />
+      <workItem from="1722477250536" duration="581000" />
+      <workItem from="1722483235384" duration="48000" />
+      <workItem from="1723610948732" duration="117000" />
+      <workItem from="1723617133256" duration="201000" />
+      <workItem from="1725240006520" duration="1033000" />
+      <workItem from="1725251291968" duration="2286000" />
+      <workItem from="1725334806651" duration="57000" />
+      <workItem from="1725368819240" duration="595000" />
+      <workItem from="1725422784109" duration="5410000" />
+      <workItem from="1725679995866" duration="156000" />
+      <workItem from="1725691751806" duration="461000" />
+      <workItem from="1725936238362" duration="388000" />
+      <workItem from="1726235364390" duration="67000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="654" y="295" key="#Notifications" timestamp="1721395519203">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="654" y="295" key="#Notifications/0.0.1536.864@0.0.1536.864" timestamp="1721395519203" />
+    <state x="223" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1721395532434">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="223" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1721395532434" />
+    <state x="438" y="211" key="EditFileWatcherDialog" timestamp="1720442020639">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="438" y="211" key="EditFileWatcherDialog/0.0.1536.864@0.0.1536.864" timestamp="1720442020639" />
+    <state width="1515" height="223" key="GridCell.Tab.0.bottom" timestamp="1725253605537">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1515" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1725253605537" />
+    <state width="1515" height="223" key="GridCell.Tab.0.center" timestamp="1725253605537">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1515" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1725253605537" />
+    <state width="1515" height="223" key="GridCell.Tab.0.left" timestamp="1725253605537">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1515" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1725253605537" />
+    <state width="1515" height="223" key="GridCell.Tab.0.right" timestamp="1725253605537">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1515" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1725253605537" />
+    <state x="277" y="77" key="SettingsEditor" timestamp="1725423459298">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="277" y="77" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1725423459298" />
+  </component>
+</project>

@@ -1,0 +1,86 @@
+<html>
+    <!-- Ramda -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.js"></script>
+
+    <script>
+        //left right
+        const Left = (value) => ({
+            value,map(fn){
+                return Left.of(value);
+            },
+            matchWith (context)
+            {
+                return context.left(value)
+            },
+            valueOf()
+            {
+                return value;
+            }
+        });
+
+        Left.of = Left;
+
+        const Right = (value) => ({
+            value,
+            map(fn)
+            {
+                return Right.of(fn(value));
+            },
+            matchWith(context)
+            {
+                return context.right(value);
+            },
+            valueOf()
+            {
+                return value;
+            }
+        })
+        Right.of = Right;
+
+        // 
+        let obj = {
+            username : "ZYH",
+            email : "person@gmail.com"
+        };
+
+        const notEmpty = (str) => str.length > 0;
+        const minLength = length => str => str.length >= length;
+        const maxLength = length => str => str.length <= length;
+        const validEmail = str => str.includes('@') && str.includes('gmail.com'); //should make with regular expression
+        
+
+        /*
+        console.log( "Max Lenght :",maxLength(3)('Hello'));
+        console.log( "Min Lenght :",minLength(3)('Hello'));
+        console.log("Valid Email :",validEmail("Hello@"));
+        console.log("Valid Email :",validEmail("Hello@gmail.com"));
+        */
+
+        const userNameNotEmpty = (obj) => notEmpty(obj.username);
+        const userNameMinLength = (obj) => minLength(3)(obj.username);
+        const userNameMaxLength = (obj) => maxLength(5)(obj.username);
+        const userEmailValid = (obj) => validEmail(obj.email);
+
+        function validatorHOF(validator,errorMessage)
+        {
+            return function(input)
+            {   if(validator(input))
+                {
+                    return Right.of(input);
+                }
+                else
+                {
+                    return Left.of(errorMessage);
+                }
+            }
+        }
+
+    const userNameNotEmptyV2 = validatorHOF(userNameNotEmpty,'UserName should not be empty')
+
+    userNameNotEmptyV2(obj)
+                .matchWith({
+                    left :(data) => console.error('Invalid User :',data),
+                    right : (data) => console.log("Validation Ok")
+                })
+    </script>
+</html>

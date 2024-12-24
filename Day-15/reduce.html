@@ -1,0 +1,71 @@
+<html>
+  <script>
+    console.log("Reduce");
+    let arr = [1, 2, 3, 4];
+    let total = arr.reduce((a, b) => a + b);
+    console.log(total);
+
+    function connected(a, b) {
+      console.log("a :", a, "\nb :", b);
+      return a + b;
+    }
+    let str = ["a", "b", "c", "d"];
+    let connect = str.reduce(connected);
+    console.log(connect);
+
+    let min = arr.reduce((a, b) => Math.min(a, b));
+    let max = arr.reduce((a, b) => Math.max(a, b));
+    console.log("Minimal :", min);
+    console.log("Maximal :", max);
+    let objArr = [
+      {
+        name: "Zayar",
+        age: 20,
+        gender: "male",
+        callme() {
+          console.log("Zayar Htun");
+        },
+      },
+      {
+        name: "Htun",
+        age: 21,
+        gender: "female",
+        callme() {
+          console.log("Htun Htun");
+        },
+      },
+      {
+        name: "Yar Yar",
+        age: 21,
+        gender: "male",
+        callme() {
+          console.log("Yar Htun");
+        },
+      },
+      {
+        name: "Toe Toe",
+        age: 12,
+        gender: "male",
+        callme() {
+          console.log("Toe Toe");
+        },
+      },
+      {
+        name: "Toe Tott",
+        age: 8,
+        gender: "male",
+        callme() {
+          console.log("Toe Tott");
+        },
+      },
+    ];
+    const isMale = (obj) => obj.gender == "male";
+    const isYoungest = (obj1, obj2) => (obj1.age > obj2.age ? obj2 : obj1);
+    let youngestBoy = objArr.filter(isMale).reduce(isYoungest);
+
+    console.log("Male :", youngestBoy.name);
+
+
+    console.log(male);
+  </script>
+</html>

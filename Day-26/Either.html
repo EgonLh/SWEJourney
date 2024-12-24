@@ -1,0 +1,84 @@
+<html>
+    <script>
+        console.log("Either");
+
+        const Left = (value) => ({
+            value,map(fn){
+                return Left.of(value);
+            },
+            matchWith (context)
+            {
+                return context.left(value)
+            },
+            valueOf()
+            {
+                return value;
+            }
+        });
+
+        Left.of = Left;
+
+        const Right = (value) => ({
+            value,
+            map(fn)
+            {
+                return Right.of(fn(value));
+            },
+            matchWith(context)
+            {
+                return context.right(value);
+            },
+            valueOf()
+            {
+                return value;
+            }
+        })
+        Right.of = Right;
+        // fail case
+        Left.of(10)
+            .map(x=>x+1)
+            .matchWith({
+                right:(data)=>console.log('success data',data),
+                left:(data)=>console.log('Failed Data',data),
+            })
+
+        // success case
+        Right.of(10)
+            .map(x=>x+1)
+            .matchWith({
+                right:(data)=>console.log('success data',data),
+                left:(data)=>console.log('Failed Data',data),
+            })
+
+        function div(a,b){
+            if(isNaN(a) || isNaN(b))
+            {
+                console.log("Nothing Invoded");
+                return Left.of("Invalid Parameter a or b is null");
+            }else 
+            {
+                console.log("Just Invoded");
+                return Right.of(a/b);
+            }
+        } 
+        
+        // div(10,NaN)
+        //     .map(x=>x+1)
+        //     .matchWith({
+        //         left : (data)=>console.log("Error ",data),
+        //         right : (data)=>console.log("Success ",data)
+        //     })
+
+        // solving try catch limitation with FP
+        div(10,NaN)
+            .matchWith({
+                left : (data)=>Right.of(0),
+                right : (data)=>Right.of(data)
+            })
+            .map(x=>x+1)
+            .matchWith({
+                left : (data)=>console.log("Error ",data),
+                right : (data)=>console.log("Success ",data)
+            })
+    </script>
+</html>

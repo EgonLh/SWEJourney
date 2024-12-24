@@ -1,0 +1,27 @@
+<html>
+    <script>
+        console.log("Iterator");
+        let arr = [1,2,3,4];
+        for (const item of arr) {
+            console.log("Item :",arr);
+        }
+
+        // spreadable
+        console.log(...arr);
+        console.log(Math.max(...arr));
+
+
+        // destructurable
+        let [first,...rest] = arr;
+        console.log("Destructure :",first);
+        console.log("Destructure :",rest);
+
+
+        let iterable = [99,100]
+        let iterator = iterable[Symbol.iterator]();
+        for(let result = iterator.next(); !result.done ; result = iterator.next())
+        {
+            console.log(result.value);
+        }
+    </script>
+</html>

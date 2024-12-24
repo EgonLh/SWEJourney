@@ -1,0 +1,199 @@
+show databases - show all the databases in sever
+use db_name    - switch to the desired database
+show collection- show the collections in those database
+
+
+- insering a document
+db.movies.insertOne(
+  {
+    title: "The Favourite",
+    genres: [ "Drama", "History" ],
+    runtime: 121,
+    rated: "R",
+    year: 2018,
+    directors: [ "Yorgos Lanthimos" ],
+    cast: [ "Olivia Colman", "Emma Stone", "Rachel Weisz" ],
+    type: "movie"
+  }
+)
+    - test flexibility
+db.movies.insertOne(
+  {
+    title: "Alice In WonderLand",
+    genres: [ "Drama", "History","Thriller"],
+    runtime: 333,
+    rated: "R",
+    year: 2021,
+    directors: [ "Yorgos Lanthimos" ],
+    location :"Japan",
+    actor: [
+        {
+            firstName:"Hyouka",
+            lastName:"Saturoah"
+        },
+        {
+            firstName:"Nazumi",
+            lastName:"Ikuro"
+        }
+        ],
+    type: "series"
+  }
+)
+--felxible schema
+
+
+db.movies.find() => querying all
+
+db.movie.insertMany => inserting many documents use array format
+db.movies.insertMany([
+   {
+      title: "Jurassic World: Fallen Kingdom",
+      genres: [ "Action", "Sci-Fi" ],
+      runtime: 130,
+      rated: "PG-13",
+      year: 2018,
+      directors: [ "J. A. Bayona" ],
+      cast: [ "Chris Pratt", "Bryce Dallas Howard", "Rafe Spall" ],
+      type: "movie"
+    },
+    {
+      title: "Tag",
+      genres: [ "Comedy", "Action" ],
+      runtime: 105,
+      rated: "R",
+      year: 2018,
+      directors: [ "Jeff Tomsic" ],
+      cast: [ "Annabelle Wallis", "Jeremy Renner", "Jon Hamm" ],
+      type: "movie"
+    }
+])
+
+-- self study by yourself
+
+
+= db.movies.find({year : 2021}) => find movies from year:2021 
+= db.movies.find({type: 'movie',runtime : 121, location:'Myanmar'}) => And 
+= db.movies.find( { rated: { $in: ['R'] } } ) => IN
+= db.movies.find({$or:[{type: 'movies'},{rated :'R'}]})=> OR
+
+using both
+= db.movies.find( {type :"movies",$or:[{year:"2021",},{rated:"R"}]}) => and + or
+
+Operators
+db.movies.find({year: {$gte:2020}}) => greater than equal
+Read in document
+
+- size is nested object also called embedding model
+db.inventory.insertMany( [
+   { item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
+   { item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "A" },
+   { item: "paper", qty: 100, size: { h: 8.5, w: 11, uom: "in" }, status: "D" },
+   { item: "planner", qty: 75, size: { h: 22.85, w: 30, uom: "cm" }, status: "D" },
+   { item: "postcard", qty: 45, size: { h: 10, w: 15.25, uom: "cm" }, status: "A" }
+]);
+
+
+what to find size of 'in'
+db.inventory.find({"size.uom":"cm"}) => nested 
+
+db.inventory.find({"size.h":{$lt"15}}) => less than
+
+for precise value -> embedded match
+->should not use , cause compuational expensive and slowdown
+db.inventory.find({size: {h:14,w:21,uom:"cm"}})
+
+
+For Array
+db.inventory.insertMany( [
+   { item: "journal", instock: [ { warehouse: "A", qty: 5 }, { warehouse: "C", qty: 15 } ] },
+   { item: "notebook", instock: [ { warehouse: "C", qty: 5 } ] },
+   { item: "paper", instock: [ { warehouse: "A", qty: 60 }, { warehouse: "B", qty: 15 } ] },
+   { item: "planner", instock: [ { warehouse: "A", qty: 40 }, { warehouse: "B", qty: 5 } ] },
+   { item: "postcard", instock: [ { warehouse: "B", qty: 15 }, { warehouse: "C", qty: 35 } ] }
+]);
+
+=> need order
+ db.inventory.find( { tags: ["red", "blank"] } ) => for array match
+
+=> all not order
+db.inventory.find( { tags: { $all: ["red", "blank"] } } )
+
+=> mulitiple condition; to solve this use across mulitiple element
+db.inventory.find( { dim_cm: { $gt: 15, $lt: 20 } } )
+
+
+single element
+db.inventory.find( { dim_cm: { $elemMatch: {$gt: 15, $lt: 20} } } )
+
+=>array position
+db.inventory.find( { "dim_cm.1": { $gt: 25 } } )
+
+=> for length
+db.inventory.find( { "tags": { $size: 3 } } )
+
+
+=> find form embedded array of the array
+=>exact match
+db.movie.find({
+  "actor":{"firstName":"Hyouka","lastName":"Saturoah"}
+})
+
+=> to find with one filed name
+db.movie.find({
+  "actor.firstName":"Hyouka"
+})
+//with index
+db.inventory.find( { 'instock.0.qty': { $lte: 20 } } )
+
+=> projection
+db.inventory.find( { status: "A" } )
+
+1=>true
+db.inventory.find( { status: "A" }, { item: 1, status: 1 } )
+
+0=>false
+db.inventory.find( { status: "A" }, { status: 0, instock: 0 } )
+
+db.inventory.find( { status: "A" }, { status: 0, instock: 0 } )
+//without size's uom
+db.inventory.find( { status: "A" }, { status: 0, instock: 0 ,"size.uom" :0} )
+
+==> Update
+
+db.inventory.insertMany( [
+   { item: "canvas", qty: 100, size: { h: 28, w: 35.5, uom: "cm" }, status: "A" },
+   { item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
+   { item: "mat", qty: 85, size: { h: 27.9, w: 35.5, uom: "cm" }, status: "A" },
+   { item: "mousepad", qty: 25, size: { h: 19, w: 22.85, uom: "cm" }, status: "P" },
+   { item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "P" },
+   { item: "paper", qty: 100, size: { h: 8.5, w: 11, uom: "in" }, status: "D" },
+   { item: "planner", qty: 75, size: { h: 22.85, w: 30, uom: "cm" }, status: "D" },
+   { item: "postcard", qty: 45, size: { h: 10, w: 15.25, uom: "cm" }, status: "A" },
+   { item: "sketchbook", qty: 80, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
+   { item: "sketch pad", qty: 95, size: { h: 22.85, w: 30.5, uom: "cm" }, status: "A" }
+] );
+
+updateOne =>
+db.inventory.updateOne(
+   { item: "paper" },
+   {
+     $set: { "size.uom": "cm", status: "P" },
+     $currentDate: { lastModified: true }
+   }
+)
+db.inventory.updateOne(
+   { _id: ObjectId('66966bcfacaf0f89c8c4e4a2') },
+   {
+     $set: { "item": "BBL Drizzy" },
+     $currentDate: { lastModified: true }
+   }
+)
+=> replaceOne - replacing
+db.inventory.replaceOne(
+   { item: "BBL Drizzy" },
+   { item: "BBL Drizzy", "instock.warehouse": "G"}
+)
+
+=>don't
+db.inventory.deleteMany({ status : "A" })
+=>all

@@ -1,0 +1,27 @@
+<html>
+    <script>
+        console.log("Array Part : 3");
+
+        console.log("\n Fill()");
+        arr = new Array(10);
+        arr[0]=1;
+        console.log("Empty Array :",arr);
+        arr.fill(0);
+        console.log("Mutable Original: ",arr);
+        arr.fill("Empty",3);
+        console.log("Fill With 'empty' from index 3 :",arr);
+
+        console.log("\n copyWithin()");
+        let array = ['a','b','c','d','e','f','g','h'];
+        console.log(array);
+
+        array.copyWithin(0,4,7);//4-6 copy start from 0
+        console.log(array);
+
+
+        let newArr = [1,2,3,4,5,6,7,8];
+        console.log("Original ",newArr);
+        newArr.copyWithin(1,5,8)//->[6,7,8]->start form 1
+        console.log("Result  :",newArr);
+    </script>
+</html>

@@ -1,0 +1,81 @@
+<html>
+    <script>
+        // username@gmail.com
+        let emailAddress = 'me@gmail.com';
+
+        let reg = /^Java/;
+        console.log('Java.test(/^Java/)',reg.test("Java"));
+        console.log('JavaScript.test(/^Java/)',reg.test("JavaScript"));
+        console.log('Python.test(/^Java/)',reg.test("Python"));
+
+        
+        let regLast = /Script$/
+        console.log('Java.test(/Script$/)',regLast.test("Java"));
+        console.log('JavaScript.test(/Script$/)',regLast.test("JavaScript"));
+        console.log('ShellScript.test(/Script$/)',regLast.test("ShellScript"));
+
+        reg = /\bm/
+        console.log('moon.test(/\bm/)',reg.test("moon"));
+        console.log('moonlight.test(/\bm/)',reg.test("moonlight"));
+        console.log('hoenymoon.test(/\bm/)',reg.test("hoenymoon"));
+
+
+        reg = /\Bm/
+        console.log('moon.test(/\Bm/)',reg.test("moon"));
+        console.log('moonlight.test(/\Bm/)',reg.test("moonlight"));
+        console.log('hoenymoon.test(/\Bm/)',reg.test("hoenymoon"));
+
+
+        reg = /abc/
+        console.log('aba.test(/abc/)',reg.test("aba"));
+        console.log('abc.test(/abc/)',reg.test("abc"));
+        console.log('abd.test(/abc/)',reg.test("abd"));
+        
+        reg = /[a-c]/
+        console.log('aba.test(/[a-c]/)',reg.test("aba"));
+        console.log('add.test(/[a-c]/)',reg.test("add"));
+        console.log('eed.test(/[a-c]/)',reg.test("eed"));
+
+        // * - numbers as you wish
+        reg = /^[0-9]*$/
+        console.log('09.test(/^[0-9]*$/)',reg.test("09"));
+        console.log('add.test(/^[0-9]*$/)',reg.test("add"));
+        console.log('212ssd.test(/^[0-9]*$/)',reg.test("212ssd"));
+        console.log('1.test(/^[0-9]*$/)',reg.test("1"));
+
+         // + - at leadst one digit
+         console.log("+ number");
+         reg = /[0-9]+/
+        console.log('121212.test(/[0-9]+/)',reg.test("09"));
+        console.log('add.test(/[0-9]+/)',reg.test("add"));
+        console.log('212ssd.test(/[0-9]+$/)',reg.test("212ssd"));
+        console.log('1.test(/[0-9]+/)',reg.test("099999"));
+
+        // 3 - 10
+        console.log("3-10");
+
+        reg = /[0-9]{3,10}/
+        console.log('121212.test([0-9]{3,10})',reg.test("09"));
+        console.log('add.test([0-9]{3,10})',reg.test("add"));
+        console.log('212ssd.test([0-9]{3,10})',reg.test("212ssd"));
+        console.log('1.test([0-9]{3,10})',reg.test("09223"));
+
+        //Minimum 10
+        console.log("Minimum");
+        reg = /[0-9]{3,}/
+        console.log('092.test(/[0-9]{3}/)',reg.test("092"));
+        console.log('add.test(/[0-9]{3}/)',reg.test("add"));
+        console.log('09010102032.test(/[0-9]{3}/)',reg.test("09010102032"));
+        console.log('09223.test(/[0-9]{3}/)',reg.test("09223"));
+
+
+
+        console.log("?");
+        reg = /abc?/
+        console.log('abc.test(/[0-9]{3}/)',reg.test("abc"));
+        console.log('abc abc.test(/[0-9]{3}/)',reg.test("abc abc"));
+
+
+    </script>
+
+</html>

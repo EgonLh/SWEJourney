@@ -1,0 +1,38 @@
+<html>
+  <script>
+    console.log("Hello World");
+    let jaggedArray = 
+    [
+      [1, 2, 3, 2, 1],
+      [4, 5, 6, 3],
+      [7, 8, 9],
+    ];
+
+    for (let i = 0; i < jaggedArray.length; i++) 
+    {
+        console.log("Outer :",jaggedArray[i]);
+      //first outer loop
+      for (let j = 0; j < jaggedArray[i].length; j++) {
+        console.log("Inner :",jaggedArray[i][j]);
+        jaggedArray[i][j] *=2;
+      }
+    }
+
+
+    console.log("Result :",jaggedArray);
+
+
+
+    console.log("\t Array Method");
+    let arr_method = [1,2,3,3,]
+    arr_method.test = function(){
+        console.log("Hello");
+    }
+console.log("Array Method :",arr_method);
+console.log(arr_method.length);
+arr_method.test();
+
+
+
+  </script>
+</html>

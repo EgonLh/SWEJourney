@@ -1,0 +1,63 @@
+<html>
+    <script>
+        // Parameterized Function
+
+        function sayHello(name)
+        {
+            console.log( "Hello, " + name);
+        }
+
+
+        sayHello("Admin")
+
+
+        // return function 
+        function add(a, b)
+        {
+            return a + b;
+
+            // a=3;  invalid can't effect
+            // b=3;
+            // console.log(a);
+            // default case : undefined
+        }
+
+        let result = add(1, 2);
+
+        console.log("Result :",result);
+
+
+        // return multiple value with object;
+        function test(str){
+            let a = {
+                name : str,
+                length :str.length
+            }
+            return a;
+        }
+        let accept = {
+            length:undefined,
+            name :undefined,
+        }
+        accept = test("hello");
+        console.log(accept.name);
+        console.log(accept.length);
+
+        // return  multiple value with array
+        function Arrayreturn(str){
+            return [str.toUpperCase(),str.length];
+        }
+
+        let [str, length] = Arrayreturn("Hello World");
+        console.log(str);
+
+
+        // undefined case
+        function voidFunc(){
+            console.log( " Undefined Return ");
+        }
+        let undef_return = voidFunc();
+        console.log( " Default return [undefined] :",undef_return);
+
+    </script>
+</html>

@@ -1,0 +1,48 @@
+<html>
+    <script>
+        // "use strict";
+        // var a=10;
+        function returnThis(){
+            console.log("This :", this);
+        }
+
+        returnThis();
+
+
+        // -- unstrict--
+        // eval('console.log("A")');
+        // eval("var a =1")
+        // console.log(a);
+
+        // top = 10;
+        // console.log(top);
+
+
+        function message(msg){
+            console.log("Arguement ",arguments.callee);
+            console.log("Arguement ",arguments.caller);
+
+        }
+        message("gell");
+
+        // delete o;
+        // delete window.top;
+
+        // let obj = {
+        //     name : "sth",
+        //     name : 'nth'
+        // }
+        // console.log(obj.name);
+
+
+        // function hello(ms,ms){
+        //     console.log("Hello ",ms);
+        // }
+
+        // hello("how","Eww");
+
+
+        eval = "Hello";
+        console.log(eval);
+    </script>
+</html>

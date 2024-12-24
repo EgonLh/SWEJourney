@@ -1,0 +1,42 @@
+<html>
+    <script>
+        console.log("Array Read and Write \n");
+
+        let student = ["Mg Mg", "Aung Aung" , "Aye Aye "];
+        // Read
+        console.log("student[0] :",student[0]);
+        // Write
+        student[1] = "Ko Ko";
+        console.log("student :", student.join(" : "));
+
+        // Array vs Object
+        let obj = {};
+        console.log("Obj :",typeof obj);
+        obj[0] = 1;
+        obj[1] = 2;
+        console.log("Object :",obj);
+        console.log("Length of object :",obj.length);//undefined
+
+        // Array is dynamic
+        arr = [1,2];
+        arr[3]=3;
+        arr['12']=10;
+       
+        console.log("Increase Array :",arr);
+        arr.length=2;
+        arr["Keyword"] = "World";
+        console.log("Decrease Array :",arr);
+         arr["SayHello"] = function(){
+            console.log("Hello world");
+        };
+        arr.SayHello();
+        console.log(arr);
+        console.log("Array Lenght :",arr.length);
+
+
+        // Array Length
+        let arr1 = [,,,]
+        console.log("Total Element :", arr1.length);
+        console.log("Sparse Array  :", arr1[0]);
+    </script>
+</html>

@@ -1,0 +1,52 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+
+        // -> External Recourse
+        script(src="/javascripts/index.js")
+        // > Bootstrap
+        link(href="/css/bootstrap.min.css", rel="stylesheet")
+        // > Icons
+        script(src='https://unpkg.com/boxicons@2.1.4/dist/boxicons.js')
+
+        title API Stores
+
+    body.animated-gradient
+    nav.navbar.navbar-expand-lg.navbar-light.bg-main.fs-3.sticky-top.transparent-bg-for-nav
+        .container
+            a.navbar-brand.fw-bold(onclick="refresh()").d-flex.flex-row.align-items-center
+              box-icon(name='message-square-dots' type="solid" size="md")
+            div.flex.justify-content-center.align-items-center
+                        a.nav-link(href='#').d-flex.flex-row.align-items-center
+                            box-icon(type='logo' name='github' size="md")
+
+    div.container.headline
+        div.flex.justify-content-center.text-center.my-5.py-5
+            h1 Free Fake APIs
+            p Practical Project To Develop API with Express.js
+            br
+            div Using Express.js
+
+            div.m-1
+                box-icon(name="code-block" size="lg")
+
+    div.container.my-5.py-5
+        h2.py-5#Guide(onclick="refresh()") Resources
+        p We Support API which include information of Series,Movies,Comics....
+        ul.mb-5
+            li.d-flex
+                a(onclick='GoToRoute()').text-decoration-underline#series /api/series
+                p.ms-4 30 Series
+            li.d-flex
+                a(onclick='GoToRoute()').text-decoration-underline /api/movies
+                p.ms-4 30 Movies
+            li.d-flex
+                a(onclick='GoToRoute()').text-decoration-underline /api/comics
+                p.ms-4 30 Comics
+        code Note: I will add more api when the project is on process.
+
+        script(src="/js/bootstrap.bundle.min.js")
+    //script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js', integrity='sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM', crossorigin='anonymous')

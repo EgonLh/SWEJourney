@@ -1,0 +1,85 @@
+<script>
+    // "use strict"; -> JS strict mode
+let command = '1+3';
+let sayHello = "console.log('Hello World')";
+console.log(eval(command));
+console.log(eval(sayHello));
+console.log(eval('var a=1;'));
+console.log(a);
+
+// ?:
+let raining = true;
+let str;
+if (raining) {
+    str = 'take umbrella';
+} else {
+    str = "don't need to take";
+}
+
+let con1 = raining ? 'stay home' : 'go out';
+raining = !true;
+let con2 = raining ? 'stay home' : 'go out';
+console.log('condition 1 :', con1);
+console.log('condition 2 :', con2);
+!raining?console.log("take umbrella"):console.log("Stay inside");
+
+
+// First - Defined (??)
+const config = {
+    width: 100,
+}
+
+config.height = config.height || 200;
+console.log('with Rule 1 of OR :',config.height);
+// Downside
+const logg = {
+    width: 100,
+    height:0,
+}
+logg.height = logg.height || 200;
+console.log('Downside :', logg.height);
+// uscage of operator ??
+const usage = {
+    width: 10,
+    height : 0,
+}
+usage.height = usage.height ?? 20;
+console.log('?? : ', usage.height);
+
+
+// typeof
+let c = null;
+typeof (c) == 'object' ? console.log('This is object') : console.log('This is not object');
+
+// delete
+console.log("\n Delete Operator \n");
+let personal_info = {
+    name: ' ZYH ',
+    age: '20',
+    address : '20'
+}
+delete personal_info.address;
+console.log('delete personal_info.address :',personal_info.address);
+personal_info.address = personal_info.address ?? "Pyay";
+console.log('personal_info.address ?? :', personal_info.address);
+console.log(delete personal_info.address);
+
+
+let arr = [1, 2, 3];
+console.log('Array Length :',arr.length);
+console.log('Delete Array :arr[1] ',delete arr[1]);
+console.log('New Arr',arr);
+console.log('Deleting Value',delete 3);
+console.log(arr);
+
+// var df = [];
+// df['a'] = 1;
+// df['b'] = 2;
+// df['c'] = 3;
+// console.log(df);
+// console.log(df.length);
+// console.log(df['a']);
+// console.log(delete df['a']);
+// console.log(df);
+// console.log(df.length);
+</script>

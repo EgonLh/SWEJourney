@@ -1,0 +1,18 @@
+<html>
+    <script>
+        // 32 bit ==> 4 byte
+        // [0001] => nout ska see
+        let littleEndian  = new Int8Array( new Int32Array([1]).buffer)
+        console.log("littleEndian :",littleEndian[3]);
+        console.log("littleEndian :",littleEndian[2]);
+        console.log("littleEndian :",littleEndian[1]);
+        console.log("littleEndian :",littleEndian[0]);
+
+        let bytes = new Int32Array([1,2]);
+        let view = new DataView(bytes.buffer,bytes.byteOffset,bytes.byteLength)
+
+        console.log("View",view.getInt32(0));//big endian
+        console.log("View",view.getInt32(0,true));//little endian
+
+    </script>
+</html>

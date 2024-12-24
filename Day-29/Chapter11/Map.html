@@ -1,0 +1,36 @@
+<html>
+    <script>
+        console.log("Map");
+
+        let n = new Map([
+            ['id1','A'],
+            ['id2','b'],
+            ['id3','C']
+        ]
+        )
+
+        console.log(n);
+        console.log("map.get('id3') :",n.get('id3'));
+
+        n.set('id4','D');
+
+        console.log(n);
+        
+        console.log("Has :",n.has('id3'));
+
+        n.delete('id3');
+        console.log("Delete :",n);
+
+        for (const [k,v] of n) {
+            console.log("Key :",k);
+            console.log("Value :",v);
+
+        }
+
+        console.log(n.keys());
+        console.log(n.values());
+        console.log(n.entries());
+
+
+    </script>
+</html>

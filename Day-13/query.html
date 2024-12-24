@@ -1,0 +1,22 @@
+<html>
+    <script>
+        console.log("Query");
+
+        let fAge = 'age';
+        obj = {
+            name : "ZYH",
+            [fAge] : 20,
+            address : "Pyay",
+            false : "false" ,//bad practices
+            'another field' : "Hello",
+        }
+
+        console.log("Object :",obj);
+        console.log("Object's Age :",obj['age']);
+        console.log(obj['address']);
+        console.log(obj.name);   
+        console.log(obj['false']); 
+        console.log(obj.false);
+        console.log(obj['another field']);
+    </script>
+</html>

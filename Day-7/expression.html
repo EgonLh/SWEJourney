@@ -1,0 +1,21 @@
+<script>
+    let obj={
+        name:'ZYH',
+        age:19,
+    }
+    console.log(obj.name);
+    obj=undefined;
+    console.log(obj?.name);
+
+
+    let a = {
+        b:undefined,
+        c:{
+            d:'test',
+        },
+        d:19
+    }
+console.log(a.b?.c);
+console.log(a.c?.d);
+
+</script>

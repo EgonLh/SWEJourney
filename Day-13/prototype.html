@@ -1,0 +1,43 @@
+<html>
+    <script>
+        let obj = {
+            name : "Egon",
+            age : 20,
+        }
+        console.log(obj);
+        console.log(obj.hasOwnProperty());
+        console.log(obj.__proto__);
+
+
+        let obj1 = Object.create({name:"ZYH"});
+        console.log("Object Create :",obj1);
+        console.log("Obj Name :",obj1.name);
+
+
+        // 
+        let parent = {
+            value : 100,
+            data :[100]
+        }
+        let obj2 = Object.create(parent);
+        console.log("Value from prototype :",obj2.value);//read
+
+        obj2.value = 200;
+        obj2.data.push(200);//read -> (if !) -> parent's data
+        console.log("Value from object 2 :",obj2.value);//write (obj.prop = value)
+
+        // To call from parent
+        console.log("Value from prototype :",obj2.__proto__.value);
+        
+        let obj3=Object.create(obj2);
+        console.log("Inherit  Obj3 : ",obj3.value);
+        obj3.value = 300;
+        console.log("Obj 3's Value :",obj3.value);
+        console.log(obj3);
+
+
+        parent.value = 1000;
+        console.log(obj2);
+        console.log("Data : ",obj3.data);
+    </script>
+</html>

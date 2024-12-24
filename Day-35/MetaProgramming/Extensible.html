@@ -1,0 +1,35 @@
+<html>
+    <script>
+        console.log("Extensible");
+
+        let obj = {
+            name : "Sth",
+            age : 39
+        };
+        console.log("isExtensible",Object.isExtensible(obj));
+        Object.preventExtensions(obj)
+        console.log("isExtensible",Object.isExtensible(obj));
+
+        // using seal
+
+        obj.newProp = 'sth';
+        console.log(obj);
+
+
+        console.log("isExtensible :",Reflect.isExtensible(obj));
+
+
+        Object.seal(obj);
+        
+        delete obj.name;
+        console.log("seal()",Object.isSealed(obj));
+
+        console.log("Delete :",obj);
+
+        Object.freeze(obj);
+        obj.name = 'Update';
+        console.log("Object",obj);
+
+        console.log("isFrozen :",Object.isFrozen(obj));
+    </script>
+</html>

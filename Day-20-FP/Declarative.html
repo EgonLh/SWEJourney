@@ -1,0 +1,76 @@
+<html>
+<script>
+    console.log("Transformation ");
+
+    // let a = [1,2,3,4]
+    // let b = a.map((x)=>x*5);
+    // console.log(b);
+    // console.log(a);
+
+console.log("MAP Review");
+
+let arr = [
+    {
+        name : "Aung Aung",
+        age : 20,
+        gender : "Male"
+    },
+    {
+        name : "Maung Aung",
+        age : 12,
+        gender : "Male"
+    },
+    {
+        name : "Maung Maung",
+        age : 31,
+        gender : "Male"
+    },
+    {
+        name : "Khin Myint",
+        age : 31,
+        gender : "Female"
+    },
+    {
+        name : "Moe Moe",
+        age : 20,
+        gender : "Female"
+    },
+    {
+        name : "Tin Aung",
+        age : 32,
+        gender : "Male"
+    },
+]
+
+const names = arr.map(obj => obj.name); //map
+console.log("Names :",names);
+
+const femalist = (arr.filter(obj => obj.gender == 'Female')).map(obj=>obj.name);
+console.log("All Female ",femalist);
+
+const allAge  = arr.map(obj => obj.age).reduce((a,b)=>a+b)
+console.log("All age :",allAge);
+
+
+
+// imperative approach
+
+
+// declarative approach
+const youngestFemale = (arr.filter(obj => obj.gender == "Female").reduce((a,b)=>{
+    return a.age > b.age ? b.name : a.name;
+}));
+
+
+// better code - refactoring 
+const isFemale = obj => obj.gender == 'Female';
+const getYounger = (objA,objB) => {
+    return objA.age>objB.age ? objB.name:objA.name;
+}
+
+const better_ans = arr.filter(isFemale).reduce(getYounger);
+
+console.log("With more efficiant code :",better_ans);
+console.log("Youngest Female :",youngestFemale);
+</script>
+</html>

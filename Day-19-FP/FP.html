@@ -1,0 +1,93 @@
+<html>
+    <script>
+        console.log("Functional Programming");
+
+        console.log("First Class Rules");
+
+        // Rule 2
+        let rule_1 = function(){
+            console.log("Rule 1: Assignnign Variable with function :");
+        }
+
+        // Rule 2
+        function sayHello()
+        {
+            console.log("Rule 2 : Passing Parameter with function");
+        }
+        function rule_2(fun)
+        {
+            console.log("Rule 2");
+            fun();
+        }
+
+        rule_2(sayHello);
+
+        // Rule 3
+
+        function sayHelloBack()
+        {
+            console.log("Rule 3 : Returing function");
+            return function()
+            {
+                console.log("Rule 3 : Returning function from a function");
+            }
+        }
+        // sayHelloBack()()
+
+
+        let rule_3 = sayHelloBack();
+
+        rule_3();
+
+
+
+        // Recursive
+
+        function recursive(value)
+        {
+            if(value > 10)
+            {
+                console.log("Greater Than 10");
+                return 10;
+            }
+            else
+            {
+                console.log("Value :",value);
+                return recursive(value + 1);
+            }
+        }
+
+        recursive(1);
+
+
+        // closure
+        function outer()
+        {
+            let data = 0
+            return function()
+            {   
+                data++;
+                return data;
+            }
+        }
+        let closure = outer()();
+        console.log("Closure :",closure);
+
+
+        // arrow function
+        const sum = (a,b) => a+b;
+        console.log("arrow-func :",sum(1,2));
+
+
+
+        // transpilter
+        let str = "";
+        String.prototype.sayHi = function(name)
+        {
+            return `Hello ${name}`; 
+        }
+
+        let polyFill = str.sayHi("Egon");
+        console.log(polyFill);
+    </script>
+</html>

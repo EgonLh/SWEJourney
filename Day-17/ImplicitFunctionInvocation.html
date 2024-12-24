@@ -1,0 +1,29 @@
+<html>
+    <script>
+        console.log("Hello, World");
+
+
+        let obj = {
+            name :  "Egon",
+            age : 19,
+            get age()
+            {
+                console.log("Getter Invoked");
+                return 100;
+            },
+            display()
+        {
+            console.log("Display :",this.name);
+        }
+        }
+
+        console.log(obj.age);
+
+
+        // another way
+
+        // obj['display']();
+        // obj['age'];
+
+    </script>
+</html>

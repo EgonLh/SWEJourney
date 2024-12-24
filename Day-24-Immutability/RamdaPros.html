@@ -1,0 +1,37 @@
+<html>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.js"></script>
+
+    <script>
+        console.log("Ramda Set and Get");
+
+
+        console.log("props");
+        const  a = 10;
+
+        const obj = {
+            name : 'TK',
+            age : 10,
+            arr : [100,200],
+            display(){
+                console.log("Hello, World");
+            },
+            address : {
+                city : 'ygn'
+            }
+            
+        }
+
+        const getAge = R.prop('age');
+        console.log("Get Age",getAge(obj));
+
+        let obj2 = R.assoc('age',100,obj);
+
+        console.log("Obj ",obj);
+        console.log("Obj2 ",obj2);
+
+        console.log("Path :",R.path(['address','city'],obj));
+
+        let obj3 = R.assocPath(['address','city'],'MWS',obj)
+        console.log(obj3);
+    </script>
+</html>

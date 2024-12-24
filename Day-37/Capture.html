@@ -1,0 +1,74 @@
+<html>
+    <style>
+        #container{
+            height: 50px;
+            background-color: blue;
+        }
+    </style>
+    
+    <body>
+    <div id="parent">
+        Parent
+        <div id="container">
+            Container
+        </div>
+    </div>
+    <button type="button" onclick="console.log('Clicking Button')"> Click</button>
+    <button type="button" id="btnRemove">Remove</button>
+    </body>
+    <script>
+        window.onload=function()
+        {
+            // document.body.style.background = 'black'
+            console.log('Window Onload');
+        }
+        let hander1 = (event) => {
+            console.log("Event Body:",event);
+        }
+        window.onload=function()
+        {
+            console.log('Window Onload Overwrite');
+        }
+        document.body.addEventListener('click',hander1,{
+            capture:true,
+        })
+        document.getElementById('btnRemove').addEventListener('click',()=>{
+            console.log("Remove");
+            document.body.removeEventListener('click',hander1)
+        })
+        document.addEventListener('contextmenu',(event)=>{
+            console.log("Left Menu :",event);
+        },{
+            capture:true,
+        })
+
+        // document.body.addEventListener('mousemove',(event)=>{
+        //     console.log("MouseMove :",event);
+        // })
+        document.getElementById('container').addEventListener('click',(event)=>
+    {
+        console.log("Click Container :",event);
+    },{
+            capture:true,
+        })
+    document.getElementById('container').addEventListener('click',(event)=>
+    {
+        console.log("Click Container Hander2 :",event);
+    },{
+            capture:true,
+        })
+
+    document.getElementById('parent').addEventListener('click',function(event){
+    if(event.target  !== this)
+    {
+        console.log("Not From Parent,Fired By Child ",event.target);
+    }
+    else
+    {
+        console.log("From This Parent:",this);
+    }
+},{
+            capture:true,
+        })
+    </script>
+</html>

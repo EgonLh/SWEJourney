@@ -1,0 +1,29 @@
+<script>
+  console.log("Throw");
+
+  function div(a, b) {
+    if ((a == 0) & (b == 0)) {
+      throw new Error(" Can't Handle 0 value");
+    } else {
+      return a / b;
+    }
+  }
+
+  let result = div(1, 2);
+  console.log("Answer :", result);
+
+  // can't handle
+try
+{
+    let err = div(0, 0); //error
+  console.log("Answer :", err);
+
+}catch(e)
+{
+    console.log("Error Occured :",e.message);
+}finally{
+    console.log("Finally Run");
+}
+console.log("End");
+
+</script>

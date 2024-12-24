@@ -1,0 +1,56 @@
+<html>
+    <script>
+        console.log("Writer Moand");
+        let compose = (f,g) => x => f(g(x));
+        // log ==> read effect => impure function
+        /* const inc = (x) =>{
+        //     console.log("Inc :",x);
+        //     return x+1;
+         }*/
+
+
+        // writer monad functional way without effect => pure function
+
+        const inc = (x) => [x+1,`Increase called with ${x}`];
+        const double = (x) => [x**2,`Double called with ${x}`];
+
+
+        let [result, logStr] = inc(10);
+
+        console.log("Result :", result, logStr);
+
+
+        // problem
+        // let newFunc = compose(inc,double);
+
+        // console.log(newFunc(3));
+
+
+        // solution -> problem - can't use ordinary compose
+
+        const composeDebuggable = (f,g)=> x =>{
+            let [result,logstr] = g(x);
+            let [result2,logstr2] = f(x);
+
+            return [result2,logStr +', '+logstr2];
+        }
+
+        newFunc = composeDebuggable(double, inc);
+        console.log("ComposeDebuggle ",newFunc(10));
+
+
+        // use bind to solve reusable problem
+
+        const bind=(f) => function(tuple)
+        {
+            const [result, log1] = tuple,
+                [result2,log2] = f(result);
+                return [result2,log1 + ', '+log2]
+        }
+
+        let newFunctionWithTuple = compose(bind(inc),bind(double))
+        let unit = (x) => [x,''];
+        let finalFunc = compose(newFunctionWithTuple,unit);
+        console.log("FinalFunc , ", finalFunc(10));
+    </script>
+</html>

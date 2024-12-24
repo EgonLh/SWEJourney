@@ -1,0 +1,17 @@
+<html>
+    <script>
+        function next(){
+            let  i = 0
+            return function inner()
+            {
+                return i++;
+            }
+        }
+
+        let unique = next();//
+        console.log("Unique : ",unique());//i = 0
+        console.log("Unique : ",unique());//1
+        console.log("Unique : ",unique());//2
+
+    </script>
+</html>

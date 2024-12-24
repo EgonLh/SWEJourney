@@ -1,0 +1,29 @@
+<html>
+    <script>
+        console.log("Using reduce to create map and filter");
+        const range = (start,stop) => new Array(stop - start)
+                                                .fill(0)
+                                                .map((v,i) => start + i );
+    let oneTo4 = range(1,5);
+    // map
+    const double = (x) => x*2;
+    let result = oneTo4.reduce((a,b,)=>{
+            return [...a,double(b),"Each"]
+        },["First",])
+    console.log("Result :",result);
+
+
+    // filter
+    let oneToTen = range(1,11);
+    const isEven = x => x%2 == 0;
+    const filter = (arr,predicate) => arr.reduce((a,b)=>{
+        return predicate(b)?[...a,b]:a;//use predicate again
+    },[]//M- initial state
+    )
+    
+    let evenList = filter(oneToTen,isEven);
+    console.log(evenList);
+
+    console.log([1,2,3].flatMap(x=>[x,x*2]));
+    </script>
+</html>

@@ -1,0 +1,45 @@
+<html>
+  <script>
+    console.log("Symbol");
+
+    console.log("Iterator :",Symbol.iterator);
+    console.log("AsyncIterator :",Symbol.asyncIterator);
+
+    let unit8  = { 
+        [Symbol.hasInstance](x){
+            return Number.isInteger(x) && x >= 0 && x<= 255;
+        }  
+
+      }
+      console.log(128 instanceof unit8);
+
+      console.log("ToString",{}.toString);
+      console.log("ToString",Object.prototype.toString.call([]));
+      console.log("ToString",Object.prototype.toString.call(''));
+      console.log("ToString",Object.prototype.toString.call({}));
+      console.log("ToString",Object.prototype.toString.call(/a/));
+
+
+      function classOf(o)
+      {
+        return Object.prototype.toString.call(o).slice(8,-1);
+      }
+
+      console.log("Class Of :",classOf([]));
+      console.log("Class Of :",classOf(()=>{}));
+      console.log("Class Of :",classOf({}));
+
+      class Human {
+        get [Symbol.toStringTag]()
+        {
+            return "Human";
+        }
+      }
+
+      console.log("Class of custome obj :",classOf(new Human()));
+      console.log("ToString ",Object.prototype.toString.call(new Human()));
+
+
+
+  </script>
+</html>

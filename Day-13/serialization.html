@@ -1,0 +1,20 @@
+<html>
+    <script>
+        console.log("__Serialization__");
+        let data = {
+            x:1,
+            arr : [1,2],
+            sayhello(){
+                return "Hey";
+            }
+        }
+
+        let toTCP = JSON.stringify(data);
+        let returnData = JSON.parse(toTCP);
+        let test=toTCP;
+        console.log(toTCP);
+        console.log(returnData);
+        console.log(test);
+
+    </script>
+</html>

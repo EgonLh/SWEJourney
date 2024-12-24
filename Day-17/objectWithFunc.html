@@ -1,0 +1,51 @@
+<html>
+  <script>
+    console.log("Object With function");
+
+    // console.log("Old Way Object :");
+
+    // function Human(name,age)
+    // {
+    //     this.name = name;
+    //     this.age = age;
+    //     this.dispaly=function()
+    //     {
+    //         console.log("This is ",this.name," - ",this.age," years old.");
+    //     }
+    // }
+
+    // let Obj = new Human('ZYH',18);
+
+    // console.log("Old way Object :",Obj);
+
+    // Obj.dispaly?.();
+
+    function Student(name, age, studentId) {
+      this.name = name;
+      this.age = age;
+      this.studentId = studentId;
+
+      this.card = function () {
+        console.log(
+          "Student Card :",
+          this.studentId,
+          "\nStudent Name :",
+          this.name
+        );
+      };
+    }
+
+    let ObjStudent = new Student("Egon", 19, 423);
+
+    console.log("Old Way Object :", ObjStudent);
+
+    ObjStudent.card();
+
+    //  function hello()
+    //  {
+    //     console.log("Hello");
+    //  }
+
+    //  let helloObj = new hello(); // new return as object
+  </script>
+</html>

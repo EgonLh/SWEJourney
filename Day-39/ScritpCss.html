@@ -1,0 +1,49 @@
+<html>
+    <style>
+        *{
+            transition: 2s;
+            font-family: monospace;
+            
+        }
+        .class_a{
+            text-align: center;
+            font-family: monospace;
+            transition: 2s;
+            width: 400px;
+            padding: 40px;
+            background-color: rebeccapurple;
+        }
+    </style>
+    <body>
+        <div id="divContainer" class="class_a" style="color: azure;">
+            Div Container
+            <div id="childContainer">
+                Child contianer
+            </div>
+        </div>
+        <div id="anotherId">
+            Another ID
+        </div>
+        <button type="button" id="btnCloseClass">
+            Remove Container
+        </button>
+    </body>
+    <script>
+        let contianer = document.getElementById('divContainer');
+        let btn = document.getElementById('btnCloseClass');
+        btn.addEventListener('click',()=>{
+            contianer.classList.toggle('class_a');
+
+
+            /*
+            contianer.style.background = "purple";
+            contianer.style.color = "red";
+            */
+
+            let style = `background : grey;color :white`;
+            contianer.style.cssText = style;
+
+            console.log("Window.getComputedStyle :",window.getComputedStyle(document.getElementById('childContainer')));
+        })
+    </script>
+</html>

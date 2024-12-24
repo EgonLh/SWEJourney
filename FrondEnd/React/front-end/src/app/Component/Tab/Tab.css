@@ -1,0 +1,20 @@
+.tab-header{
+    min-width: 100px;
+    padding:10px;
+    margin: 3px;
+    font-family: monospace;
+    border: 1px solid #e2e2e2;
+    display: inline-block;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 10px;
+    box-shadow: 1px 1px 4px 4px rgba(226, 239, 255, 0.54);
+}
+
+.tab-body{
+    min-height: 200px;
+    border: 1px solid #e2e2e2;
+    box-shadow: 1px 1px 4px 4px rgba(226, 239, 255, 0.54);
+    padding: 40px;
+    font-family: sans-serif;
+}

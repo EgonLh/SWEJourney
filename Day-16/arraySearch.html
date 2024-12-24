@@ -1,0 +1,59 @@
+<html>
+  <script>
+    console.log("Array Srearch");
+    // indexof()
+    // lastIndexOf()
+    // Include
+    let array = [1, 2, "3", 4, 5];
+    console.log("Array Include 3 :", array.includes(3));
+    console.log("Array IndexOf 3 :", array.indexOf(3));
+    console.log("Array IndexOf 3 :", array.lastIndexOf(3));
+
+    // sort
+    let arr = [110, 10, 11, 20, 30, 40];
+    console.log("Unsortted Array :", arr);
+    arr.sort();
+    console.log("Sortted Array :", arr);
+
+    // With comparator
+    array1 = [110, 11, 11, 20, 30, 40];
+    array1.sort((a, b) => a - b);
+    console.log(array1.sort((a, b) => a - b));
+    // return a negative value if a should come before b
+    // return 0 if a and b are considered equal
+    // return a positive value if a should come after b
+    console.log("With Comparator :", array1);
+
+    console.log(array1.sort((a, b) => b - a));
+    console.log("Reverse Comparator :", array1);
+
+    let objArr = [
+      {
+        name: "Aung",
+        age: 50,
+      },
+      {
+        name: "CC",
+        age: 10,
+      },
+      {
+        name: "BoBo",
+        age: 20,
+      },
+      {
+        name: "Dee Dee",
+        age: 30,
+      },
+      {
+        name: "Ei Ei",
+        age: 40,
+      },
+    ];
+    console.log("Unsortted Array ",objArr);
+    console.log("Sorting with String For Object Array :", objArr.sort());
+    console.log(
+      "Sorting With Number For Object Array :",
+      objArr.sort((objA, objB) => objB.age - objA.age)
+    );
+  </script>
+</html>

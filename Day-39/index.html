@@ -1,0 +1,25 @@
+<html>
+    <body>
+        <div id="mainContainer">
+
+        </div>
+        <div id="container">
+            Hello, Container
+        </div>
+    </body>
+    <script>
+        document.getElementById("mainContainer").innerText = "<h1>Hello World</h1>"
+        // document.getElementById("mainContainer").innerHTML = "<h1>Hello World</h1>"
+        // document.getElementById("mainContainer").outerText="<h1>Outer Text</h1>";
+
+        let element = document.createElement('h3');
+        element.textContent = 'h3 content';
+        // document.getElementById("mainContainer").after(element);
+        document.getElementById("mainContainer").before(element);
+
+        document.getElementById("container").replaceWith(element)
+
+        
+
+    </script>
+</html>

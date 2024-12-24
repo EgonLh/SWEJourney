@@ -1,0 +1,21 @@
+<html>
+    <script>
+     class Data
+     {
+        #privateData = 10
+        data = 20;
+        static ClassDate = 100;
+        show()
+        {
+            console.log("Private Date:",this.#privateData);
+        }
+     }
+
+     let d = new Data();
+
+     console.log("Private ",d.privateData);
+     console.log("Private ",d.data);
+     d.show()
+
+    </script>
+</html>

@@ -1,0 +1,35 @@
+<html>
+    <script>
+        console.log("function property");
+
+        let fun = () =>
+        {
+            console.log("Hello");
+        }
+        fun();
+
+        // Function is instance of object
+        console.log(fun instanceof Object);
+
+
+        function next()
+        {
+            console.log("UsrName:",next.usrname);
+            console.log("name",next.name);
+            console.log("id",next.id);
+            next.id++;
+
+
+            return next.usrname;
+        }
+        next.usrname  = "Zayar";
+
+        next.id =0 ;
+        console.log("Next ",next());
+        console.log("Next ",next());
+        console.log("Next ",next());
+
+
+        next();
+    </script>
+</html>

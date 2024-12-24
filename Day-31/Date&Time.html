@@ -1,0 +1,57 @@
+<html>
+    <!-- moment js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <script>
+        console.log("Date And Time");
+        let date = new Date();
+
+        console.log(date);
+
+        // customn
+        // date = new Date(2024,0,1)
+        // console.log(date);
+
+        let miliseconds = date.getTime()
+        console.log("miliSecond : ",miliseconds);
+
+        date = new Date(miliseconds);
+        console.log("Mili - Date :",date);
+
+
+
+        console.log("Year :",date.getFullYear());
+        console.log("Month :",date.getMonth());
+        console.log("Date :",date.getDate());
+        console.log("Day :",date.getDay());
+        console.log("Hour :",date.getHours());
+        console.log("Minutes :",date.getMinutes());
+        console.log("Second :",date.getSeconds());
+        console.log("Millisecond :",date.getMilliseconds());
+
+
+        // elasped timestamp
+        let start = Date.now();
+        console.log("Hello, World");
+        let end = Date.now();
+        let elapsed = end - start;
+        console.log("elapsed timeStamp :", elapsed);
+
+
+        // moment js
+        var a  = moment('2024-12-2')
+        console.log("A :",a.toDate());
+        var b  = a.add(2,'day');
+        console.log("B ",b.format('MMMM Do YYYY, h:mm:ss a'));
+
+
+        // To Json
+        let obj = {
+            // birthday : new Date()
+            birthday : new Date().getTime() //best practice
+
+        }
+
+        console.log("JSON.stringify :",JSON.stringify(obj));
+
+    </script>
+</html>

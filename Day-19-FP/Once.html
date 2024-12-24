@@ -1,0 +1,110 @@
+<html>
+    <script>
+        console.log("Functional");
+        // let done = false
+        // function payment()
+        // {   
+        //     // Imperative approach
+        //     if(!done)
+        //     {
+        //     console.log("Payment API called");
+        //     done=true
+        //     }
+        // }
+        
+        // let done2=false;
+        // // imperative approach
+        // function putOrder()
+        // {
+        //     // Imperative approach
+        //     if(!done2)
+        //     {
+        //     console.log("Ordered API called");
+        //     done2=true;
+        //     }
+        // }
+        // payment();
+        // payment?.();
+
+        // putOrder();
+        // putOrder?.();
+
+        // functional approach
+
+        function payment(card,cardId)
+        {
+            console.log("Payment API called",card,"\nPayment Id",cardId);
+        }
+
+        function putOrder(order,orderId)
+        {
+            console.log("PutOrder API called",order,"\nOrder ID :",orderId);
+        }
+
+        // HOS + closure (containing state)
+        // function once(fn)//separted concened 
+        // {
+        //     let done = false 
+        //     return function(...rest)//input arguements
+        //     {
+        //         if(!done)
+        //         {
+        //             done=true;
+        //             return fn(...rest)//spread
+        //         }
+        //     }
+
+        // }
+
+        // Once And After
+
+    // arrow func
+        const once = (fn)=>{
+            let done = false;
+            return (...rest)=>(!done?(done=true,fn(...rest)):undefined);
+        }
+
+        payment_once = once(payment);//main idea
+        payment_once(100,200);
+        payment_once(200,300);
+
+        putOrder_once = once(putOrder);
+        putOrder_once(1,2,3);
+        putOrder_once(4,5,6);
+
+
+        console.log("Once And After");
+        // function onceAndAfter(f,g)//separted concened 
+        // {
+        //     let done = false 
+        //     return function(...rest)//input arguements
+        //     {
+        //         if(!done)
+        //         {
+        //             done=true;
+        //             return f(...rest)//spread
+        //         }else
+        //         {
+        //             return g(...rest)
+        //         }
+        //     }
+
+        // }
+
+        const onceAndAfter = (f,g) => {
+            let done = false
+            return (...rest)=>(!done?(done=true,f(...rest)):g(...rest))
+        }
+        payment_check = onceAndAfter(payment,()=>console.log("Have been Used"));
+        payment_check(500,"200");
+        payment_check(300,"400");
+
+
+        order_check = onceAndAfter(putOrder,()=>console.log("Have been Ordered"));
+        order_check(400,"Checked");
+        order_check(300,"Checked");
+
+
+        
+    </script>
+</html>

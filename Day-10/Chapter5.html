@@ -1,0 +1,32 @@
+<script>
+  console.log("Expression(return a value) : Statment(conplete - command)");
+  let raining = false;
+  if (!raining) {
+    console.log("It's not raining");
+    console.log("Go Outside");
+  }
+
+  console.log("Empty Statement");
+  if(!!raining);
+  else{
+    console.log('go');
+  }
+
+
+  let obj = {
+    valueOf(){
+        return true;
+    }
+  }
+  if(obj){
+    console.log("Truth Case");
+    console.log(''+obj);
+  }else{
+    console.log("False Case");
+  }
+  if('Hello'){
+    console.log("Truthy");
+  }else{
+    console.log("Fakse");
+  }
+</script>

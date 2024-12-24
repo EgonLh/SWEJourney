@@ -1,0 +1,52 @@
+<script>
+    console.log("Array");
+    let stud = ["Aung Aung", "Hla Maung ", "Mya Naing"];
+    let mark = [70,80,90];
+    console.log(stud);
+    console.log("Student 0 :",stud[0]);
+    console.log("Student 1 :",stud[1]);
+    console.log("Student 2 :",stud[2]);
+    console.log("How many student :",stud.length);
+let total = 0;
+for(const a of mark){
+    total += a;
+}
+console.log(total);
+
+
+// Creating Array]
+
+// array literal
+console.log("Creating Array");
+let arr_lit = [1,2,3,4];
+console.log(typeof(arr_lit));
+let x= 1;
+let y = false
+let mistype_arr = [x,6,false,true,y+"",!!undefined];
+console.log(mistype_arr);
+
+// array spead operator
+let arrSpread = [...arr_lit];
+console.log("[...arr] :",arrSpread);
+let strArr = [..."abcdefghijklm1212"];
+console.log("[...string] :",strArr);//with digites
+
+
+// Array constructor
+let arr4 = new Array(1,2,3,5);
+console.log("Dummies :",arr4);
+
+let arrEnd = new Array(3);
+arrEnd[10]="12"
+console.log(arrEnd);
+
+
+// Array Of
+let arr5 = Array.of(1,2,3,5);
+console.log("Array.of :",arr5);
+
+// Array From
+let arr6 = Array.from(arr5);
+console.log("Array.From :",arr6);
+</script>
+

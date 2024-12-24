@@ -1,0 +1,23 @@
+<html>
+    <body>
+        <button type="button" id="BtnGo">Google</button>
+        <button type="button" id="BtnBack">Back</button>
+
+    </body>
+    <script>
+        console.log("Location :",window.location);
+        document.getElementById('BtnGo').addEventListener('click',()=>{
+            // window.location = "http://www.google.com";
+            window.location = "#page2";
+        })
+
+        document.getElementById('BtnBack').addEventListener('click',()=>{
+            // window.location = "http://www.google.com";
+            window.history.go(-1);
+        })
+
+        window.addEventListener('hashchange',(event)=>{
+            console.log("hash Change",event);
+        })
+    </script>
+</html>

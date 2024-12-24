@@ -1,0 +1,35 @@
+<html>
+    <body>
+        <button type="button" id="btnAllocate">Allocate</button>
+        <button type="button" id="btnDeallocate">Deallocate</button>
+
+    </body>
+    <script>
+        console.log("WeakMap and WeakSet");
+        let another;
+        // let map = new Map();
+        let map = new WeakMap();
+        function hello()
+        {
+            // let arr = new Array(10000)// this become garbage
+            // arr = null ;//because of this
+            console.log("Allocate");
+            let arr = [];
+            for (let i = 0; i < 50; i++) {
+                arr.push(new Array(10000))
+                
+            }
+            // another = arr;
+            map.set(arr,'something');
+
+        }
+    document.getElementById('btnAllocate').addEventListener('click',()=>
+    {
+        hello();
+    })
+    document.getElementById('btnDeallocate').addEventListener('click',()=>
+    {
+        
+    })
+    </script>
+</html>

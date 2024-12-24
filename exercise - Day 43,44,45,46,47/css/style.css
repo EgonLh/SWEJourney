@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.hero {
+    background: url('images/hero.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero .display-4 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.hero .lead {
+    font-size: 1.5rem;
+    font-weight: 300;
+}

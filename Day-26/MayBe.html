@@ -1,0 +1,143 @@
+<html>
+    <!-- Ramda -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.js"></script>
+    
+    <script>
+
+        const toUpper = (str) => str.toUpperCase();
+        const appendHi = (str) => str + ' hi';
+
+        let Nothing = (value) => ({
+            map(fn){
+                return this;
+            },
+            isNothing(){
+                return true;
+            },
+            valueOf()
+            {
+                return value;
+            },
+            orElse(defaultValue){
+                return Just(defaultValue);
+
+            }
+        });
+
+        Nothing.of = Nothing
+
+        let Just = (value) => ({
+            map(fn){
+                // console.log("Just Map");
+                // return Just.of(fn(value)); <--bugs
+                return Maybe.of(fn(value));
+            },
+            isNothing(){
+                // console.log("Just isNothing");      
+                return false;
+            },
+            valueOf()
+            {
+                // console.log("Just ValueOf");
+                return value;
+            },
+            orElse(defaultValue){
+                // console.log("Just Default");
+                return this;
+
+            },justTest(){
+                console.log("test");
+            }
+        });
+       
+        Just.of = Just;
+
+        // same logic predicate function
+        let Maybe = (value) = value => (value == isNaN(value)|| value === undefined || value === null)
+                                    ?Nothing.of(value):Just.of(value);
+        Maybe.of = Maybe;
+
+
+        // Imperative Apporach
+        // function div(a,b){
+        //     if(isNaN(a) || isNaN(b)){
+        //         throw new Error("Invalid Paramenter a or b is NAN")
+        //     }else 
+        //     {
+        //         return a/b;
+        //     }
+        // }
+
+        // try
+        // {
+        //     let result = div(10,NaN);
+        //     console.log("Result :",result);
+
+        // }catch(error)
+        // {
+        //     console.log("Catch :",error);
+        // }
+
+
+        // Function Approach
+        function div(a,b){
+            if(isNaN(a) || isNaN(b)){
+                console.log("Nothing Invoded");
+                return Nothing.of("Invalid Parameter a or b is null");
+            }else 
+            {
+                console.log("Just Invoded");
+                return Just.of(a/b);
+            }
+        }
+
+        // error handling with Nothing and Just and maybe
+        // div(10,NaN).map(x => x + 2).map(console.log);
+
+        // weakpoint
+        // div(10,null)
+
+
+        div(10,2).map(console.log);
+        // console.log(div(10,null));
+
+
+        let employee = [
+            {
+                name : "Aung La",
+                supervisor : {
+                    name : "U Soe"
+                }
+            },
+            {
+                name : "Aung Min",
+                // supervisor : {
+                //     name : "U Thein"
+                // }
+            }
+        ]
+
+        // imperative code logic
+        let firstEmployee = employee[0]
+        if(firstEmployee)
+        {
+            if(firstEmployee.supervisor)
+            {
+                console.log('Name :',firstEmployee.supervisor.name);
+            }
+        }
+        // problem  : repeated patterns, nullabe checking
+
+
+        console.log("Declarative Code Logic");
+
+
+        Maybe.of(employee[1]) //just
+            .map(emp => emp.supervisor) //Nothing -- end
+            .map(supervisor=>supervisor.name)
+            .map(console.log)
+
+        // tracing
+        // console.log(Maybe.of(employee[1]).map(emp => emp.supervisor));
+    </script>
+</html>

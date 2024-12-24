@@ -1,0 +1,40 @@
+<html>
+    <script>
+        let person1 = {
+            name : "ZYH",
+            age : 19,
+            address : "Pyay"
+        }
+        let person2 = {
+            name : "IDK",
+            age : 20,
+            address : "Ygn"
+        }
+
+        console.log(person1.name);
+        console.log(person1);
+        console.log(person2);
+
+
+        let nestedObj = {
+            address : {
+                township : "Pyay",
+                road : {
+                    homeNo : 9,
+                }
+            }
+        }
+
+        console.log("Nested Obj :",nestedObj);
+        console.log(nestedObj.address.road);
+
+
+        let withObj = new Object();
+        withObj.name = "Egon";
+        withObj.address = "NYC";
+        console.log(withObj);
+
+        let date = new Date();
+        console.log(date);
+    </script>
+</html>

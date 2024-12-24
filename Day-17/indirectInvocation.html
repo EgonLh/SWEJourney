@@ -1,0 +1,44 @@
+<html>
+    <script>
+        console.log("Indirect Invocation");
+
+        function Person(name,age)
+        {
+            this.name=name,
+            this.age=age,
+            this.display = function(){
+                console.log(this);
+                console.log("This is",this.name,"- ",this.age);
+            }
+        }
+
+        let obj = new Person("ZYH",19);
+
+        let fun2 = obj.display;
+        fun2()//error case
+
+        console.log("solution");
+        fun2.call(obj);
+
+        // another case
+        let obj1 = {
+            name : "zayar",
+            display(message){
+                console.log("He is",this.name,".Say -",message);
+            }
+
+        }
+
+        let fun1 = obj1.display;
+        // error case
+        fun1("Hello");
+
+        fun1.call(obj,"World");
+
+        let arr = [1,2,-3,4];
+        console.log("Minimal case:",Math.min.apply(Math,arr));
+        // modern way
+        console.log("Minimal case:",Math.min(...arr));
+
+    </script>
+</html>

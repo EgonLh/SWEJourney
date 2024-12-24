@@ -1,0 +1,28 @@
+<html>
+  <script>
+    console.log("Clone {...a,...b,...c}");
+    let data = {
+      x: 1,
+      y: 2,
+      arr: [100],
+    };
+
+    let another = {...data} //another.arr = data.arr 
+    // share reference
+    data.arr.push(200);
+    another.arr.push(400);
+
+    console.log("Another :",another);
+
+
+    console.log("Shallow Clone : Deep Clone");
+    let shallowClone = {...data};
+    data.arr.push(1)
+    console.log("Shallow Clone :",shallowClone);
+
+    let deepClone = JSON.parse(JSON.stringify(data));
+    data.arr.push('2');
+    console.log("DeepClone :",deepClone);
+
+  </script>
+</html>

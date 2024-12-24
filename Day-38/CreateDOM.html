@@ -1,0 +1,38 @@
+<html>
+    <body>
+        <div id="parent" class="class_name">
+            Parent
+        </div>
+        <div>
+            Another
+        </div>
+        <div class="another-class" id="another">
+            Another Class
+        </div>
+        <div class="another-class">
+            Another Class
+        </div>
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7uwLyomLuj-z2wdukzRfaViu2o_urpD0h8eOGOdtcLQ&s" alt="" srcset="">
+    </body>
+    <script>
+        let element = document.createElement('h2');
+        element.textContent = "Hello World";
+        document.getElementById('parent').appendChild(element);
+
+        for(let i = 0, len = document.getElementsByTagName('div').length; i < len; i++){
+            let parent = document.getElementsByTagName('div')[i];
+            console.log("Parent :",parent);
+            let element = document.createElement('div');
+            element.textContent = "Hello World";
+            parent.appendChild(element);
+        }
+
+        console.log('class name :',document.getElementsByClassName('another-class'));
+
+        console.log("Img :",document.images);
+        console.log("ID parent :",another);
+        // let another = "Hello"
+        console.log("ID parent :",another);
+    </script>
+</html>

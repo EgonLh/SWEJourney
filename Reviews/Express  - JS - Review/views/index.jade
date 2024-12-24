@@ -1,0 +1,175 @@
+extends layout
+
+block content
+    h1= title
+    p Welcome to #{title}
+    h3 Note : Representational State Transfer
+    b
+        ul
+            li
+                code Use HTTP , MVC-Framework for REST API
+            li
+                code How Gitignore Work : https://git-scm.com/docs/gitignore
+            li
+                code App.js : Like Java Main Program > Start From bin/www - Implement in app.js
+            li
+                code Power> RestApi : One backend -> Multiple Backend
+            li
+                code SOAP(protocol) VS Rest  :https://www.upwork.com/resources/soap-vs-rest
+                br
+                code `SOAP is a protocol, while REST is an architectural style`
+            li
+                code : GOOD For Proxy
+                    br
+                    small
+                        code `An API proxy sits between a client and an API, providing an access point to the API with additional functionality such as security, caching, or rate limiting, without requiring changes to the API`
+
+            h4
+                code Characteristics
+                code
+                    ul
+                        li Uniform Interface : Request Represent Resource eg : (api/movies/....)
+                        li Stateless : Doesn't have a relation with Request 1 and 2 of HTTP
+                        li Layer System  : eg business layer > security layer(middleware) > replaceable, Cache able
+                            br
+                            a https://www.baeldung.com/cs/layered-architecture
+
+                    ul
+                        li
+                            h3 Scalability
+                        li : Horizontal Scaling > Adding Node Ports
+                        li : Vertical Scaling > Add Computer Requirement
+                hr
+    div
+        h3
+            u Express Concept
+        code
+            li > Index Routine Handler  : URL path Handler
+            li > Work With URL path
+            li > Chose [GET,POST,PUSH,PATCH,DELETE] based on Route Handler and URL Path
+            li > [GET,POST,...] : HTTP method , function behind the route : route handler [check code]
+        code
+            span Example
+            p `function(req, res, next) {  res.send('Hello, User'); })`
+
+            li res -> HTTP Response > Give Back From Sever > eg files,res.send,join...etc
+            li req -> HTTP Request  > From users > data in header etc
+            li next -> Middleware > used for auth > Check codes in The Review Project > Choose another route with the same name if req.next()
+        br
+        hr
+        b
+            code
+                h Note
+                li app.all > shouldn't use
+                li use get and post > note app.all
+
+            br
+            hr
+            b
+                code
+                    h Note for Routine Path
+                    li use regular expressions > ab?cd.. in doc
+                    li the first match will be the first one
+                    li shouldn't use heavily > can crack the application
+                    br
+            hr
+            b
+                code
+                    h Check Code For Route Parameters
+                    li naming conventions > `api/movies[plural]/....`
+            hr
+            b
+            code
+                h4 PostMan
+                li Note for Security
+                    li Avoid Downloading with File Path - can manipulate form file path
+                    li Avoid revealing file path
+            hr
+            b
+            code
+                    h4 Res
+                    li res.end - to end the response after one response
+                    li res.json - return the javascript object to client:content-type: application/json only in restapi
+                    li res.jsonp - with cors support `padding` : `JSONP stands for JSON with Padding`
+                    li res.sendFile - with octatus string : shouldn't used
+                    li res.sendStatus - send status for backend - should used only for backend
+            hr
+            b
+            code
+                h4 API Rules
+                li Design Based on Resources eg (todos, movies, musices) , not verbs
+                li Use POST for operations and also versions. (POST order -> Created)
+                li Resources must name as /api/movies/v1/ -> order with version
+                li Resource must be plural (movies, musics, names)
+                li high-level resources / low-level resources
+                li Check in Microsoft Guideline for api design.
+                li should use 202 for asyn
+                li should have example in Postman for production
+                li for documentation - Swagger ui
+            hr
+            b
+            code
+                h4 MiddleWare
+                li  A layer between users and services with response
+                li  Router is a kind of middleware
+                li  can execuate code
+                li  must have res,req : use for like JWT token
+                li routing middleware : routine
+                li middleware : functionalities -> based on layers
+                li layers extenable
+                li middleware - chain of responsibilities : like waterfall
+                li res,req circle can be ended, don't need to reach router
+                    h3 Middleware must be higher order functions
+
+            hr
+            b
+            code
+                h4 MiddleWare Configuration
+                li First with  let auth = require('./middleware/auth');
+                li Used with app.use such as > app.use('/api/movies',auth.verifyUserToken, movieRouter);
+                li beware of order
+                li use next();
+                li error handline (err,req,res,next)
+                li for build in
+                    a  https://expressjs.com/en/guide/using-middleware.html
+            hr
+            b
+            code
+                h4 Mongodb
+                li Two Type of Database - RDMBS > Relational Database & NOSQL - not only SQL
+                li read more in notes
+            hr
+            b
+            code
+                h4
+                u Mongodb DB
+                li NoSQL - more then relational database management system [RDDMS]
+                li More flexible schema
+                li can create formatted scheme : flexible scheme
+                li good for agile project management
+                li First Query : More features
+                li More Scaling since Mongo is cloud-based
+                li No-SQL DAta Type
+                    li Document Database - Mongo - Json storage `Document Typed Stored
+                    li Key-Valued Database - Redis - NoSQL - in-memory storage
+                    li A Wide Column Store database - Cassandra
+                    li Graph Database > Google map -> graph stored - Neo4j
+                li Document Database - Scalable , flexible, hanlde more operations , less operation on `join` operations
+                li Don't use mogosh-shekk
+                li use mongosh compass `Check Command In Doc`
+                li Obtain Object ID as primary key when inserting new data
+                li Avoid Exact Match in Mongo - cuz of too much computational expensive
+                li Obtain Object ID as primary key when inserting new data
+                li use Element Match for exactly > To Read :
+                    a https://www.mongodb.com/docs/manual/reference/method/db.getName/
+                li Embedded Array to linked storage eg:actors of a movies : but must be exact match and element for operations : even the order :
+                    li Thus, should't use
+                li use objects eg actors.firstname
+                li Projection for column $(projection) : $<- projection
+                li Update used -> filter
+                li update Many - shouldn't use directly ,Read Doc
+                li select and validate before `Update` And `Delete`
+                li Relationship = RDMS - limiation - no embedded
+                    li Mongo - 2 model
+                    li Embedded `actors : {{},{}}
+                    li Reference < lookup > more self-study

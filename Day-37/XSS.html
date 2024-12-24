@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <input type="text" name="" id="UserComment">
+        <button type="button" id="btnAppend">Load</button>
+        <div id="container">
+        </div>
+    </body>
+    <script>
+        document.getElementById('btnAppend').addEventListener('click',()=>{
+            let UserComment = document.getElementById('UserComment').value;
+            document.getElementById('container').innerText = UserComment;
+        })
+    </script>
+</html>

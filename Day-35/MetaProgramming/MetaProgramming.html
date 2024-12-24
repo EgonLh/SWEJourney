@@ -1,0 +1,34 @@
+<html>
+    <script>
+        let obj = {
+            name : "ZYH",
+            age : 20,
+        }
+
+        let obj2 = {
+            address :"Pyay",
+            other : "",
+        }
+
+        function checkStringEmpty(obj)
+        {
+            for(let prop  in obj)
+            {
+                if(typeof obj[prop]=='string' && obj[prop] === '')
+                {
+                    console.warn("Property :",prop, "is empty");
+                    
+                }
+            }
+        }
+
+        checkStringEmpty(obj);
+        checkStringEmpty(obj2);
+        console.log("PropertyDescriptor :",Object.getOwnPropertyDescriptor(obj,'name'));
+        console.log("PropertyDescriptor :",Object.getOwnPropertyDescriptor({},'toString'));
+
+        
+
+
+    </script>
+</html>

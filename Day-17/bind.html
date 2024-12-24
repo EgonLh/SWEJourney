@@ -1,0 +1,31 @@
+<html>
+    <script>
+        console.log("Bind");
+        let obj =  {
+            name : "Zay Yar Htun",
+            age : 19,
+            display(message)
+            {
+                console.log(this);
+                console.log("This is ",this.name,"\n This is ",this.age);
+            }
+        }
+
+        let obj1 =  {
+            name : "Egon",
+            age : 11,
+        }
+
+
+        let fun0 = obj.display;
+        fun0("Message");
+
+        // call solution
+        console.log("Solution With Call");
+        fun0.call(obj,"Call Solution");
+
+        console.log("Solution With Bind");
+        let fun1 = obj.display.bind(obj1);
+        fun1("Bind");
+    </script>
+</html>

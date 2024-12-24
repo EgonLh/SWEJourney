@@ -1,0 +1,74 @@
+<html>
+    <body>
+<div id="time">
+    Time
+</div>
+<button id="btnLoad" type="button">Load</button>
+    </body>
+    <script defer src="./defer.js">
+        console.log("Hello");
+    </script>
+    <script defer>
+        console.log("Hello, World Defer");
+    </script>
+
+    <script async src="./async.js"></script>
+    <!-- <script src="./normal.js"></script> -->
+
+    <script>
+        console.log("Hello World");
+    </script>
+    <script>
+        setTimeout(()=>{
+            document.getElementById("time").innerText  = new Date;
+        },1000)
+
+
+        function loadScritp(url,callback)
+        {
+            let dynamicScript = document.createElement("script");
+            dynamicScript.src = url;
+            dynamicScript.onload=callback
+            document.body.append(dynamicScript)
+        }
+
+        function loadScritpWithPromise(url,callback)
+        {
+            return new Promise((resolve, reject)=>{
+                let dynamicScript = document.createElement("script");
+            dynamicScript.src = url;
+            dynamicScript.onload=resolve
+            document.body.append(dynamicScript)
+            })
+        }
+        document.getElementById('btnLoad').addEventListener('click',()=>{
+            console.log("Btn Load Click");
+            // let element = document.createElement("div");
+            // element.textContent =  "Hello";
+            // document.body.appendChild(element)
+
+            // let dynamicScript = document.createElement("script")
+            // dynamicScript.src = "./normal.js";
+            // document.body.append(dynamicScript);
+            // dynamicScript.onload=()=>{
+            //     console.log("Script Load Done");
+            // };
+
+            loadScritp('normal.js',()=>{
+                console.log("Script Have been load");
+            })
+
+            loadScritpWithPromise('normal.js')
+            .then(()=>{
+                console.log("Script Have been load With Promise");
+             })
+        })
+
+        let a = 10
+        
+    </script>
+    <script>
+        console.log(document.body);
+        console.log("sth :",a);
+    </script>
+</html>

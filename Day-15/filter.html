@@ -1,0 +1,79 @@
+<script>
+    console.log("Filter");
+
+    let mixArray = [0,1,2,3,-1,-2,-3,-4,4,5];
+
+    function isPositive(num){
+        return num>0;
+    }
+    let posArray = mixArray.filter(isPositive);//short Form
+    // let posArray = mixArray.filter((x)=>isPositive(x));//long form
+    console.log("Postive Array With Filter :",posArray);
+
+
+
+// With Map
+    // let positiveArray = mixArray.map(x => x>0);
+    // console.log("With Map:",positiveArray);
+
+    // let positiveArray1 = mixArray.filter(x => x>0);
+    // console.log("With Filter:",positiveArray1);
+
+
+    // Problem for map vs filter 
+    let context = [1,2,3,4,5,6,7,8,9,10];
+    let even  = context.map(x=>x%2==0?x:0); //transform
+    console.log("Tranformed with map : ",even );
+    let __finalEven = even.filter(x=>x>0);
+    console.log("Filtered With filter :",__finalEven);
+
+
+
+    // Another Example
+            let objArr = [
+            {
+                name : "Zayar",
+                age : 20,
+                gender:"male",
+                callme(){
+                    console.log("Zayar Htun");
+                }
+            },
+            {
+                name : "Htun",
+                age : 21,
+                gender:"female",
+                callme(){
+                    console.log("Htun Htun");
+                }
+            },
+            {
+                name : "Yar Yar",
+                age : 10,
+                gender:"male",
+                callme(){
+                    console.log("Yar Htun");
+                }
+            },
+            {
+                name : "Toe Toe",
+                age : 12,
+                gender:"male",
+                callme(){
+                    console.log("Toe Toe");
+                }
+            },
+        ]
+
+
+        let names = objArr.map(obj=>obj.name);
+        console.log("Name With Map :",names);
+        let legalName = objArr.filter(obj => obj.age>18).map(obj => obj.name);
+
+        const isMale = (a)=>a.gender == "male";
+        const maleCollectt = (b)=>b.name;
+        let maleName = objArr.filter(isMale).map(maleCollectt);
+        console.log("With Both: ",legalName);
+        console.log("Male Name :",maleName);
+
+</script>

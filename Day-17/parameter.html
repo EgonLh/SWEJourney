@@ -1,0 +1,33 @@
+<html>
+  <script>
+    console.log("Parameter");
+    console.log("Optional Parameter");
+    function display(log,message="message",name="name",third = "thrid")
+    {
+        console.log("arguement",arguments);
+        console.log("arguement length",arguments.length);
+
+
+        console.log("Message :",message ,".\nTo :",name,".\nThird :",third);
+    }
+
+    //display(,"test");//error
+    // display("Name");
+    console.log("Display Lenght ",display.length);//length without default
+    display("Message","Kim");//
+    // console.log(typeof display);//function
+    // console.log(display instanceof Object); -> name + lenght => property
+
+
+    function returnError(first,second,thrid,fourth)
+    {
+        if(arguments.length<returnError.length)
+        {
+            console.warn("Function ",this.name, ' required ',display.length);
+        }
+        console.log("Message ",first,second,thrid,fourth);
+    }
+
+    returnError(1,3,4);
+  </script>
+</html>

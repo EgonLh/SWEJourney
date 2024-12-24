@@ -1,0 +1,23 @@
+<html>
+    <script>
+        console.log("Closure");
+
+        function person()
+        {
+            let num = [];
+            function getNum(element)
+            {
+                num.push(element);
+            }
+            function releaseNum(element)
+            {
+                num.pop();
+            }
+            return {getNum,releaseNum,/*num*/};//main
+        }
+
+        let test = person();
+        // test.getNum(199);
+        // console.log(test.num);
+    </script>
+</html>

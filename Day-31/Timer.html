@@ -1,0 +1,22 @@
+<html>
+    <body>
+       <div> <code id="time"></i></code>
+       <button type="button" id="btnStop">Stop</button></div>
+    </body>
+    <script>
+        console.log("Timer");
+
+        let timer = setInterval(()=>{
+            document.getElementById('time').innerText=new Date().getSeconds()
+            // console.log("SetInterval Fired", new Date());
+        },1000);
+
+        document.getElementById('btnStop').addEventListener('click',()=>{
+            clearInterval(timer);
+        })
+
+        setTimeout(()=>{
+            console.log("Executed One Time");
+        },2000);
+    </script>
+</html>

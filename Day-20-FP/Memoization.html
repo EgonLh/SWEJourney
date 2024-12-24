@@ -1,0 +1,39 @@
+<html>
+    <script>
+        console.log("Hello, Memoization !");
+        console.log("Hello, Memoization !");
+
+        function factiorial(n)
+        {
+            console.log("compute fn - ",n);
+            let result = 1;
+            for (let i = 1; i <= n; i++) {
+                result*=i;
+            }
+            return result;
+        }
+
+        function memonize(fn)
+        {
+            let cache = {};
+            return function(x)
+            {
+                if(cache[x])
+                {
+                    // console.log(cache);
+                    return cache[x];
+                }else
+                {
+                    // console.log(cache); //nth in cache
+                    cache[x]= fn(x);
+                    return cache[x]
+                }
+            }
+        }
+
+        let memoizeFactorial = memonize(factiorial);
+        console.log("Fact :",memoizeFactorial(5));
+        console.log("Fact :",memoizeFactorial(5));
+
+    </script>
+</html>

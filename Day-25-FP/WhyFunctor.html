@@ -1,0 +1,53 @@
+<html>
+    <!-- Ramda -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.js"></script>
+
+    <script>
+        // let counter = 0
+        // counter++;  //side effect - inappropriate functional approach
+
+
+        // functional approach
+
+        const inc = x => x + 1;//counter  ++
+        const double = x => x*2;
+
+        let Container = (value) => ({
+            map(fn){
+                // apply
+                return Container(fn(value));
+            },
+            valueOf()//unwrap
+            {
+                return value;
+            },
+           
+        });
+
+        Container.of = Container;
+        // console.log(Container.of);
+        let counter = Container.of(0);//container.value();
+
+
+
+        let counter2 = counter.map(inc).map(double);
+
+        console.log(+counter);
+        console.log(+counter2);
+
+        let counter3 = Container.of(100);
+
+        console.log("Law 1 ", counter3.map(R.identity).valueOf() === counter3.valueOf());
+
+        // 
+        // Container.egon = Container;
+
+        // let num1 = Container.egon(2);
+        // let num2 = num1.map(double);
+
+        // console.log(+num1);
+        // console.log(+num2);
+
+
+    </script>
+</html>

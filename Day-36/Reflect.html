@@ -1,0 +1,50 @@
+<html>
+    <script>
+        let obj = {
+            name : "One",
+            hello(msg)
+            {
+            console.log("Msg :",msg);
+            }
+
+        }
+
+        let obj2 = {
+            name : "Two"
+
+        }
+
+        Reflect.apply(obj.hello,obj2,["Test"])
+
+        class Human
+        {
+            constructor(name,age)
+            {
+                this.name = name;
+                this.age = age;
+                console.log("Human Constructure Invoded");
+            }
+        }
+
+        // let boy_obj = new Human('Zay',19);
+        let boy_obj = Reflect.construct(Human,['Zayar',19]);
+        console.log("Obj :",boy_obj);
+
+        // Object.defineProperty(boy_obj,'age',{
+        //     value : 300,
+        //     get()
+        //     {
+        //         return 10;
+        //     }
+        // })
+
+          Reflect.defineProperty(boy_obj,'age',{
+            value : 300,
+            get()
+            {
+                return 10;
+            }
+        })  
+        console.log("Boy :",boy_obj);
+    </script>
+</html>

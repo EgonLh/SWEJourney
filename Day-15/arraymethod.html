@@ -1,0 +1,32 @@
+<html>
+  <script>
+    console.log("Array Method");
+    console.log("Iteration");
+    function print(x) {
+      console.log(x);
+    }
+
+    let lowerCase = ["zay", "yar", "htun"];
+    lowerCase.forEach(print);
+    let uppercase = [];
+    function toUpper(str) 
+    {
+      return str.toUpperCase();
+    }
+
+    for(let i = 0;i<lowerCase.length;i++)
+    {
+        uppercase.push(toUpper(lowerCase[i]));
+    }
+
+    console.log("UpperCase :",uppercase);
+
+
+
+    // map()
+    let toLower =  uppercase.map(str => str.toLowerCase())//return value
+    // let toLower = uppercase.forEach(str =>str.toLowerCase());//return undefined
+    console.log("To LowerCase :",toLower);
+
+  </script>
+</html>

@@ -1,0 +1,30 @@
+<html>
+    <body>
+        <div class="parent">
+            <input type="text" name="username">
+            <input type="password" name="password">
+            <div class="child">
+                <span>1</span><span>2</span><span>3
+                    <span>4</span>
+                </span>
+            </div>
+            <div class="myDiv">My Div</div>
+            <button type="button" id="btn">Click</button>
+            <button  id="btn">Click</button>
+
+            <div>Behind the Button</div>
+
+        </div>
+        
+    </body>
+    <script>
+        console.log("Decendant Combinator :",document.querySelectorAll(".child span"));
+        console.log(", Combinator :",document.querySelectorAll("div,span"));
+        console.log("Sub Sequenct sibiling Combinator :",document.querySelectorAll("button ~ div"));
+        console.log("btn selector :",document.querySelectorAll('button[type="button"]'));
+        console.log("btn selector :",document.getElementsByName('username'));
+
+
+
+    </script>
+</html>

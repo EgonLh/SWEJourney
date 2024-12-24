@@ -1,0 +1,55 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.js"></script>
+
+    <script>
+        const minLength = (str) => str.length > 3;
+        const notEmpty = str => !R.isEmpty(str);
+        const  errorMessagge  = ['not empty' , 'min length should be greater than 3'];
+
+        function validataion(validateFns,messages){
+            return function(x)
+            {
+                let errors = R.ap(validateFns,[x]);
+                let allErrorIndex = errors.reduce((arr,value,index)=>{
+                    if(value == false)
+                    {
+                        return[...arr,index];
+                    }else
+                    {
+                        return [...arr];
+                    }
+                },[]);
+        let message = allErrorIndex.reduce((arr,index) => {
+            return [...arr,errorMessagge[index]]
+        },[])
+
+        return message;
+            }
+           
+        
+        }
+
+        // let errors = R.ap([notEmpty,minLength],[""]);
+        // const  errorMessagge  = ['not empty' , 'min length should be greater than 3'];
+
+        // let allErrorIndex = errors.reduce((arr,value,index)=>{
+        //     if(value == false)
+        //     {
+        //         return[...arr,index];
+        //     }else
+        //     {
+        //         return [...arr]
+        //     }
+        // },[])
+
+        // console.log("Index ",allErrorIndex);
+
+        // let message = allErrorIndex.reduce((arr,index) => {
+        //     return [...arr,errorMessagge[index]]
+        // },[])
+
+        
+        let valid = validataion([notEmpty,minLength],errorMessagge);
+        console.log(valid("hi"));
+    </script>
+</html>

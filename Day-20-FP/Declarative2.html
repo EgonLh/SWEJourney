@@ -1,0 +1,74 @@
+<html>
+    <script>
+        console.log("Youngest Female :");
+        
+let arr = [
+    {
+        name : "Aung Aung",
+        age : 20,
+        gender : "Male"
+    },
+    {
+        name : "Maung Aung",
+        age : 12,
+        gender : "Male"
+    },
+    {
+        name : "Maung Maung",
+        age : 31,
+        gender : "Male"
+    },
+    {
+        name : "Khin Myint",
+        age : 22,
+        gender : "Female"
+    },
+    {
+        name : "Moe Moe",
+        age : 13,
+        gender : "Female"
+    },
+    {
+        name : "Tin Tin",
+        age : 10,
+        gender : "Female"
+    },
+]
+
+// main part
+// imperative approach
+let youngestFemaleAge = Infinity;
+let youngestFemaleName = "";
+
+for (let i = 0; i < arr.length; i++) {
+
+    if (arr[i].gender === "Female" && arr[i].age < youngestFemaleAge) {
+        youngestFemaleAge = arr[i].age;
+        youngestFemaleName = arr[i].name;   
+    }
+}
+
+console.log("Imperative Youngest female's name:", youngestFemaleName);
+
+
+// declarative approach
+
+// without refactoring
+// const getYoungest = arr.filter(obj => obj.gender == "Female").reduce((g,f) => {
+//     return g.age < f.age ?g.name : f.name;
+// })
+
+// with refactoring
+
+// Getting Name
+const getName  = obj => obj.gender == "Female";
+
+// Getting Age
+const getAge  = (objA,objB) => {
+    return objA.age < objB.age ? objA.name : objB.name;
+}
+const getYoungest = arr.filter(getName).reduce(getAge);
+
+console.log("Declarative Youngest Women Name :",    getYoungest);
+    </script>
+</html>

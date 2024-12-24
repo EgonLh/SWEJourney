@@ -1,0 +1,58 @@
+<html>
+    <script>
+        // IMPURE Function
+        let x = 10
+
+        // side effect 1
+        function incX()
+        {
+            x++;
+        }
+
+        // side effect 2
+        function incX(x)
+        {
+            x++;
+        }
+
+
+        // pure function 
+        function add(x,y)
+        {
+            return x+y;
+        }
+
+        console.log("Hello");
+        // referential transparency  
+        console.log(add(1,2) + add(1,2));
+
+        // test random()
+        function random()
+        {
+            return Math.random()
+        }
+        console.log(random());
+        console.log(random());
+
+
+
+        // impure
+        var mult = 1;
+        const f = x => {
+            mult = -mult
+            return x * mult
+        }
+
+        console.log(f(2)+ f(5));
+        console.log(f(5)+ f(2));
+
+        // pure
+        const g = x => {
+            return x * mult
+        }
+        
+        console.log(g(2)+ g(5));
+        console.log(g(5)+ g(2));
+        
+    </script>
+</html>

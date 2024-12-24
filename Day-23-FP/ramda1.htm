@@ -1,0 +1,46 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.js"></script>
+
+    <script>
+        let list = [1,2,3,4]
+        // flip -> parameter order
+        const gtZero = R.flip(R.gt)(0);
+        // const gtZero = R.gt(0);
+        console.log("Greater than 0",R.all(gtZero)(list));
+        
+        //string input -> boolean
+        // problem * -> boolean , thus negate
+        // const isNotEmpty = R.not(R.isEmpty);
+        const notEmpty = str => !R.isEmpty(str);
+
+        // min length 
+        // sting -> boolean
+        const minLength = (str) => str.length > 3;
+
+
+        console.log("All Pass ",R.allPass([notEmpty,minLength])('Hello'));
+        console.log("All Pass ",R.allPass([notEmpty,minLength])('Hi'));
+
+
+        console.log("Any Pass(Hi) :",R.anyPass([notEmpty,minLength])("Hi"));
+        console.log("Any Pass :",R.anyPass([notEmpty,minLength])(""));
+
+
+        console.log("AP :",R.ap([R.multiply(2), R.add(3)], [1,2,3]));
+        console.log("AP :",R.ap(R.concat, R.toUpper)('Ramda'));
+
+
+        console.log(R.ap([notEmpty,minLength],["hi"]));
+
+        const errorMessage = ['not empty','min length should be  greater than 3'];
+        let errors = R.ap([notEmpty,minLength],["hi"]);
+        let error = ['false','false','true','true']
+        // for all index
+        // console.log("R.collect By :",R.collectBy(R.equals(false),error));
+        let index = R.indexOf(false,errors);
+        console.log("Index :",index);
+
+        
+
+    </script>
+</html>

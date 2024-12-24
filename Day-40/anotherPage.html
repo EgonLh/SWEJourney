@@ -1,0 +1,19 @@
+<html>
+    <body>
+        <div id="DivContainer">
+            Local Storage
+        </div>
+        
+    </body>
+    <script>
+        let name = localStorage.username;
+        if(!name)
+        {
+            name = prompt("Say Your Name :");
+            localStorage.username = name;
+        }
+        console.log("Name :",name);
+
+
+    </script>
+</html>

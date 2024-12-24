@@ -1,0 +1,29 @@
+<html>
+    <script>
+        console.log("Logging form Wrapping using HOF");
+        function greet(message){
+            console.log(" Greet ",message);
+        }
+
+        function display(message)
+        {
+            console.log(" Display ",message);
+        }
+
+        // higher order function
+        // reusable
+        // more efficient desgin
+        function log(fn,Logger =console.log)//for pure version  
+        {
+            return function(...args)
+            {
+                // additional behaviour
+                Logger(new Date(), 'Function ',fn.name , "Was Called");
+                return fn(...args)
+            }
+        }
+
+        let greetLog = log(greet);
+        greetLog("Hello");
+    </script>
+</html>

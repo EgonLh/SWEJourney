@@ -1,0 +1,24 @@
+<html>
+    <!-- Ramda -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.js"></script>
+
+    <script>
+        console.log("Category theory");
+        console.log("Associativity Axiom");
+
+        // 3 function
+        const inc = x => x+1;;
+        const double = x => x*2;
+        const divideBy3 = x => x/3;
+        
+
+        // divideBy3,inc,double
+        let func1 = R.compose(R.compose(divideBy3,double),inc);
+        let ans1 = func1(2);
+        console.log("Answer :",ans1);
+
+        let func2  = R.compose(divideBy3,R.compose(double,inc));
+        let ans2 = func2(2);
+        console.log("Answer :",ans2);
+    </script>
+</html>

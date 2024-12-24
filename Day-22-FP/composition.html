@@ -1,0 +1,37 @@
+<html>
+    <script>
+    const toUpper = (str) =>str.toUpperCase();
+
+    const appendHi = str => str + " Hi";
+
+    function appendHiAndToUpper(str)
+    {
+        return toUpper(appendHi(str));
+    }
+
+    console.log(appendHiAndToUpper("egon"));
+
+    let f = x => x+10;
+    let g = x => x*2;
+
+    console.log("f(g(3)) :",f(g(3)));
+
+
+    // composition
+
+    // composable
+    function compose(f,g)
+    {
+        return function(x)
+        {
+            return f(g(x));
+        }
+    }
+
+    // new func
+    let newFunc = compose(appendHi,toUpper);
+    console.log(newFunc("toke"));
+    let anotherFunc = compose(f,g);
+    console.log(anotherFunc(3));
+    </script>
+</html>

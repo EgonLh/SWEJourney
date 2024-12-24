@@ -1,0 +1,40 @@
+<html>
+  <script>
+    // without destructuring
+    // function display(obj)
+    // {
+    //     console.log("Name :",obj.name);
+    //     console.log("Age :",obj.age);
+    // }
+
+    // with destructuring
+    function display({name,age}) 
+    {
+      console.log("Name :", name);
+      console.log("Age :", age);
+    }
+
+    display({
+      name: "ZYH",
+      age: 19,
+    });
+
+    // without destructuring
+    // function count(arr)
+    // {
+    //     console.log("count :",arr[0]);
+    //     console.log("count :",arr[1]);
+    //     console.log("count :",arr[2]);
+
+    // }
+
+    // with destructuring
+    function count([x,y,z])
+    {
+        console.log("count x :",x);
+        console.log("count y :",y);
+        console.log("count z :",z);
+    }
+    count([1,2,3,4])
+  </script>
+</html>

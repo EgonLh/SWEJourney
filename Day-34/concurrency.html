@@ -1,0 +1,41 @@
+<html>
+    <script>
+        console.log("Hello, World");
+
+        let url1 = "https://jsonplaceholder.typicode.com/todos/1";
+        let url2 = "https://jsonplaceholder.typicode.com/todos/2";
+        let url3 = "https://jsonplaceholder.typicode.com/todos/3";
+
+        // fetch(url1)
+        //     .then(response=>response.json())
+        //     .then(json1 => {
+        //         console.log("Data 1 :",json1);
+        //         return fetch(url2);
+        //     })
+        //     .then(response=>response.json())
+        //     .then(json2 => {
+        //         console.log("Data 2 :",json2);
+        //         return fetch(url3);
+        //     })
+        //     .then(response=>response.json())
+        //     .then(json3 => {
+        //         console.log("Data 3 :",json3);
+        //     })
+
+        // let urls = [url1,url2,url3,12];
+        // let promise = urls.map(url => fetch(url).then(response => response.json()))      
+        // console.log(promise);
+        // // Promise.all(promise).then(data => console.log("Data :",data),err => console.log("Error :",err))
+        // Promise.allSettled(promise).then(data => console.log("Data :",data))
+            
+        const promise1 = Promise.reject(0);
+        const promise2 = new Promise((resolve)=>setTimeout(resolve,100,'quick'))
+        const promise3 = new Promise((resolve)=>setTimeout(resolve,500,'slow'))
+
+        const promises2 = [promise1,promise2,promise3]
+
+        Promise.any(promises2).then((value)=>console.log(value))
+
+
+            </script>
+</html>

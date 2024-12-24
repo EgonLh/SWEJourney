@@ -1,0 +1,46 @@
+<html>
+    <script>
+        console.log("AsyncGenerator");
+
+        function elapsedTime(ms)
+        {
+            return new Promise(resolve => setTimeout(resolve,ms))
+        }
+
+        elapsedTime(100)
+
+        async function* clock(interval,max = Infinity)
+        {
+            for (let count = 0; count < max; count++) {
+                await elapsedTime(interval);
+                yield count;
+            }
+
+        }
+
+        async function test()
+        {
+            for await(let Click of clock(1000,5))
+            {
+                console.log("Click ",Click);
+            }
+
+            console.log("Done");
+        }
+
+        async function test2()
+        {
+            for await(let Click of clock(1000,5))
+            {
+                console.log("Event loop evolvd");
+                console.log("Click ",Click);
+            }
+
+            console.log("Done2");
+        }
+
+        test() //fire and forget
+        test2()
+        console.log("Hello");
+    </script>
+</html>

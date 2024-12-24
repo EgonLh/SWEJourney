@@ -1,0 +1,39 @@
+<html>
+    <script>
+        let obj = {
+            name : 'TK',
+            secret : 'something',
+            age : 39,
+            arr : [1,2,3,4],
+            display()
+            {
+                console.log("Not In Json");
+            },
+            toJSON()
+            {
+                console.log("TO JSON called");
+                return {
+                    username : this.name,
+                    age : this.age,
+                    _somekey : "hello"
+                }
+            }
+        }
+
+        let str = JSON.stringify(obj)
+        console.log("String  : ",str);       
+
+        let obj2 = JSON.parse(str);
+        console.log("Obj 2 :",obj2);
+
+        console.log("Customize Parse");
+        let obj3 = JSON.parse(str,function(key, value){
+            console.log("Key :",key);
+            console.log("Value :",value);
+            if(key.startsWith('_')){
+                return value + "_world";
+            }
+            return value;
+        })
+    </script>
+</html>

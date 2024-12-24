@@ -1,0 +1,32 @@
+<html>
+    <body>
+        <div id="DivContainer">
+            Local Storage
+        </div>
+        
+    </body>
+    <script>
+        let name = sessionStorage.username;
+        if(!name)
+        {
+            name = prompt("Say Your Name :");
+            sessionStorage.username = name;
+        }
+        console.log("Name :",name);
+        
+        let obj = {
+            name : "Hello",
+            age : 30,
+        }
+
+        sessionStorage.info = JSON.stringify(obj);
+
+        // let obj1 = localStorage.info;
+        // console.log("String Obj ",typeof(obj1));
+
+        // let ob_j =JSON.parse(sessionStorage.info);
+        // console.log("Object :",ob_j);
+
+    
+    </script>
+</html>

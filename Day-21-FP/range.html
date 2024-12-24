@@ -1,0 +1,27 @@
+<html>
+    <script>
+        console.log("Hello, World!");
+        console.log("Range");
+
+        // 
+        const range = (start,stop) => new Array(stop - start)
+                                                .fill(0)
+                                                .map((v,i) => {
+                                                    // console.log(start);
+                                                    // console.log("i :",i);
+                                                    return start+i;//[start : 1 , i is always index(0,1,2,3)]
+                                                });
+        let test = range(1,4)
+        console.log("Value :",test);
+
+        const factorial = (n) => range(1,n+1).reduce((a,b)=>a*b)
+
+        console.log(factorial(4));
+
+        range(0,5).forEach(element => { //[1,2,3,4,5]
+            console.log("Element :",element);
+        })
+
+
+    </script>
+</html>

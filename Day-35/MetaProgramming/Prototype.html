@@ -1,0 +1,29 @@
+<html>
+    <script>
+        let obj = {
+            name : "ZYH",
+            age :20,
+            sth : 'sth',
+            arr : [10,20]
+        }
+
+        console.log("Prototype",Object.getPrototypeOf(obj));
+        console.log("Prototype",Object.getPrototypeOf([]));
+        console.log("Prototype",Object.getPrototypeOf(()=>{}));
+
+        let another  = Object.create(obj);
+        console.log("Another :",another);
+        console.log("Another :",another.age);
+
+        another.age = 30;
+
+        console.log("Parent :",obj);
+        another.arr.push('30');//read
+        another.arr = ['hello'] // write
+        console.log("Child :",another);
+
+
+        let obj2 = Object.create(obj);
+        console.log(obj);
+    </script>
+</html>

@@ -1,0 +1,40 @@
+<html>
+<script>
+    console.log("Hello, World");
+
+    function pipe(...fns)
+        {
+            return function(x){
+                return fns.reduce((input,fn)=>fn(input),x
+                )
+            }
+        }
+
+    // let add = (x,y) => x+y;
+    // currying => haskell curry
+
+
+    const curryByBind = fn => fn.length === 0/*no para*/ ? fn() :p => curryByBind(fn.bind(null,p));
+    let curriedAdd = curryByBind(add);
+    console.log("Curried Add : ",curriedAdd(3));
+    console.log("Curried Add : ",curriedAdd(3)(4));
+
+    function add(x){
+        return function(y){
+            return x+y;
+        }
+    }
+    console.log("Add(3)    :",add(3));
+    console.log("Add(3)(4) :",add(3)(4));
+
+    let f = x => x+10;
+    let g = x => x*2;
+    let inc = (x) => x+1;
+    
+    
+    let newFunc = pipe(inc,add(3))//
+    console.log("New Func :",newFunc(3));
+
+
+</script>
+</html>

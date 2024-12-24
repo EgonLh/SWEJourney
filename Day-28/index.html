@@ -1,0 +1,9 @@
+<html>
+    <script>
+        console.log("Promise");
+
+        Promise.resolve(10)
+                .then(x=>Promise.resolve(x*2))
+                .then(console.log)
+    </script>
+</html>

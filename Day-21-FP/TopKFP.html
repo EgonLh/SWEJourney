@@ -1,0 +1,25 @@
+<html>
+    <script>
+        // imperative to array
+let nums = [1,1,1,2,2,2,2,3,3] , k = 2;
+
+        let frequency = nums.reduce((group,element)=>{ //a = group , b = element
+
+            // if(!group[element]){
+            //     return (group[element] = 1,group);
+            // }else{
+            //     return (group[element]++,group);
+            // }
+            return !group[element]?(group[element] = 1,group):(group[element]++,group);
+        },{}//initial stage
+        )
+
+        console.log(frequency);
+        let frequencyAr = Object.entries(frequency);
+        frequencyAr.sort((a,b)=>b[1]-a[1]);
+        let result = frequencyAr.map(arr=>arr[0]);
+        console.log(result);
+        // foreach
+
+    </script>
+</html>

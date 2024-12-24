@@ -1,0 +1,115 @@
+<html>
+    <style>
+        *{
+            transition: 2s;
+            font-family: monospace;
+            
+        }
+        .class_a{
+            text-align: center;
+            font-family: monospace;
+            transition: 2s;
+            width: 400px;
+            padding: 40px;
+            background-color: rebeccapurple;
+        }
+        .transparent{
+            opacity: 0%;
+        }
+        .fadable{
+            transition: opacity 5s ease-in;
+            opacity: 1;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="./dark.css" id="theme"> -->
+    <body>
+        <button type="button" id="btnLoad">
+            Down
+        </button>
+        <div id="divContainer" class="class_a" style="color: azure;">
+            Div Container
+            <div id="childContainer">
+                Child contianer
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br><br>
+        <br>
+        <br>
+        <br>
+        <br><br>
+        <br>
+        <br>
+        <br>
+        <br><br>
+        <br>
+        <br>
+        <br>
+        <br><br>
+        <br>
+        <br>
+        <br>
+        <br><br>
+        <br>
+        <br>
+        <br>
+        <br><br>
+        <br>
+        <br>
+        <br>
+        <br><br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div id="anotherId">
+            Another ID
+        </div>
+        <button type="button" id="btnTop">
+            Top
+        </button>
+        <button type="button" id="btnCloseClass">
+            Remove Container
+        </button>
+
+        
+        <div class="transparent" id="faded">
+            Hello World
+        </div>
+    </body>
+    <script>
+        
+        document.addEventListener('click',(event)=>{
+            console.log("Element ",document.elementFromPoint(event.clientX,event.clientY));
+            // document.elementFromPoint(event.clientX,event.clientY).style.background = "black";
+        })
+        console.log("BoundingRact",document.getElementById('divContainer').getBoundingClientRect());
+
+       document.getElementById('btnLoad').addEventListener('click',()=>{
+        let documentHeight = document.documentElement.offsetHeight;
+        let viewportHeight = window.innerHeight;
+        window.scrollBy(0,documentHeight-viewportHeight);
+       })
+       document.getElementById('btnTop').addEventListener('click',()=>{
+        let documentHeight = document.documentElement.offsetHeight;
+        let viewportHeight = window.innerHeight;
+        // setInterval(()=>{
+        //     window.scrollBy(0,-100);
+        // },1000)
+
+        window.scrollTo({
+            left :0,
+            top:0,
+            behavior:"smooth"
+        })
+       })
+    </script>
+</html>

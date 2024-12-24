@@ -1,0 +1,44 @@
+<html>
+    <script>
+        console.log("Hello, World");
+
+
+        function CustomeFetch(url)
+        {
+            return new Promise((resolve,reject)=>{
+                let request = new XMLHttpRequest();
+            request.open('GET',url);
+            request.send();
+            request.onload=function()
+            {
+                if(request.status == 200) //successed
+                {
+                    resolve(JSON.stringify(request.responseText ," Hello"));
+                }
+            }
+            console.log("Done!");
+            })
+            
+        }
+
+        function getSomething()
+        {
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    console.log("Get Sth  excuted");
+                    resolve(100);
+                },3000)
+            })
+            setTimeout(()=>{
+                return 100
+            },100);
+            
+        }
+
+        getSomething()
+            .then(data => console.log('Data', data))
+
+        CustomeFetch('https://jsonplaceholder.typicode.com/todos/1')
+                .then(json=>console.log("Data :",json))
+    </script>
+</html>

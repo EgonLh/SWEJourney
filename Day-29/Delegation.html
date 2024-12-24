@@ -1,0 +1,42 @@
+<html>
+    <script>
+        console.log("Delegation");
+
+        class Human
+        {
+            constructor(name,age)
+            {
+                console.log("Constructor Activate");
+                this.name = name;
+                this.age = age;
+            }
+
+            display()
+            {
+                console.log("Name :",this.name, " Age :",this.age);
+            }
+        }
+
+        // composition
+        class Teacher 
+        {
+            constructor(name,age,school)
+            {
+               this.human = new Human(name,age);
+               this.school = school;
+            }
+
+            showInfo()
+            {
+                // from human
+                this.human.display()
+                console.log("School ",this.school);
+            }
+        }
+
+        let t1 = new Teacher('TK',30,'Turing');
+        console.log("T1 ", t1);
+
+        t1.showInfo()
+    </script>
+</html>

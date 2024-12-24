@@ -1,0 +1,40 @@
+<html>
+    <script>
+        console.log("Method in Array");
+        let arr = [1,2,3];
+        arr.push(4,5,6);
+        console.log("array.push() :",arr);
+
+        arr.unshift(0,0.5);
+        console.log("array.unshfit() :",arr);
+
+        let poppedNumber = arr.pop();
+        console.log("array.pop() :", poppedNumber);
+        console.log("Result :",arr);
+
+        let shiftedNumber = arr.shift();
+        console.log("array.shift() :",shiftedNumber);
+        console.log("Result :", arr);
+
+
+        let arr_del = [1,2,3];
+        // bad practice
+        delete arr_del[0];
+        console.log("Delete : ",arr_del);//delete
+        console.log("0 in arr ",0 in arr_del);
+        console.log(arr_del.length);
+
+
+        // Iterating array
+        for(const item of arr){
+            console.log(item);
+        }
+
+        function added(x){
+            console.log(x);
+        }
+        // forEach
+        console.log("For Each");
+       arr.forEach(added);
+    </script>
+</html>

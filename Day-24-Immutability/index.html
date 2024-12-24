@@ -1,0 +1,19 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.js"></script>
+
+    <script>
+        const isEven = (x) => x%2 == 0;
+        function ifElse(predicateFns,thenFuns,elseFun){
+            return function(...input){
+                return predicateFns(...input)?thenFuns(...input):elseFun(...input);
+            }
+        }
+        let result = ifElse(isEven,()=>'Even',()=>'Odd')(2,3,4);
+        console.log("Result :",result);
+        // ifElse
+        // const greaterThan0 = n => n > 0;
+        // const promptAns = n => console.log("Answer is ",n);
+        // const errorMsg = n => console.log("Error is ",n);
+        // R.ifElse(greaterThan0,promptAns,errorMsg)(3)
+    </script>
+</html>

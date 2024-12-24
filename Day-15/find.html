@@ -1,0 +1,22 @@
+<html>
+  <script>
+    console.log("Find()");
+
+    let arr = [3, 1, 4, 3, 5];
+    let isGreater = (x) => x > 2;
+    let element = arr.find(isGreater);
+    console.log("Element :", element);
+
+    let index = arr.findIndex(isGreater);
+    console.log("Index :", index);
+
+    let falseCase = (x) => x > 6;
+    let result = arr.find(falseCase);
+    console.log("False Case - Element :", result);
+    let indexof = arr.findIndex(falseCase);
+    console.log("False Case - Index   :", indexof);
+
+
+    
+  </script>
+</html>

@@ -1,0 +1,56 @@
+<html>
+    <script>
+        console.log("Closure 2");
+        // let stack = {
+        //     item : [],
+        //     push(element)
+        //     {
+        //         this.item.push(element);
+        //     }
+        // }
+
+        // stack.push(100);
+        // stack.push(200);
+
+        // // problem - stack's item can be acceptable
+        // console.log("Stack :",stack);
+        // stack.item = [];
+        // console.log("Problem :",stack);
+        
+
+        // solution with closure
+        function Stack()
+        {
+            // internal
+            let items = [];//return type
+            console.log("Outer :",items);
+            function push(element)
+            {
+                items.push(element);
+                console.log(items);
+
+            }
+            function pop(element)
+            {
+                return items.pop();
+                console.log(items);
+            }
+
+            return {push,pop};//hide items
+        }
+
+        let stack = Stack();
+
+
+        console.log("First Push");
+        stack.push('100');
+
+        console.log("Second Push");
+        stack.push('200');
+
+
+        console.log("Stack ",stack);
+
+
+    </script>
+</html>

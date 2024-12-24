@@ -1,0 +1,26 @@
+<html>
+  <script>
+    console.log("Every");
+    let arr = [1, 2, 3, 4, 6, -2];
+    const isPositive = (x) => x > 0;
+    let positiveNums = arr.every(isPositive);
+    console.log("Every Positive Number :",positiveNums);
+
+    // x = true;
+    // x &= true;
+    // console.log(!!x);
+
+    console.log("Some");
+    let some = arr.some(isPositive);
+    console.log("Some  Positive Number :",some);
+
+
+    // let reduceNormal = arr.reduce((x, y) => x ** y);
+    // let reduceRight  = arr.reduceRight((x, y) => x ** y);
+
+    // console.log( "Reduce Normal :", reduceNormal);
+    // console.log( "Reduce Right  :", reduceRight);
+
+   
+  </script>
+</html>

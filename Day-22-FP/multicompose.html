@@ -1,0 +1,32 @@
+<html>
+    <script>
+        let f = x => x+10;
+    let g = x => x*2;
+    let inc = (x) => x+1;
+    const toUpper = (str) =>str.toUpperCase();
+    const getLenght = (x) => x.length;
+const appendHi = str => str + " Hi";
+        function compose(...fns)
+        {
+            return function(x){
+                return fns.reduceRight((input,fn)=>fn(input),x
+                )
+            }
+        }
+        let newFunc = compose(f,g,inc) //problem
+        console.log(newFunc(3));
+
+        function pipe(...fns)
+        {
+            return function(x){
+                return fns.reduce((input,fn)=>fn(input),x
+                )
+            }
+        }
+        let Func_pipe = pipe(f,g,inc);
+        let func = pipe(toUpper,getLenght);
+        console.log("type singatpure",func("Hello"));
+        // left to right
+        console.log("Pipe :",Func_pipe(3));
+    </script>
+</html>

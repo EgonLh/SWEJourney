@@ -1,0 +1,22 @@
+<html>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.js"></script>
+  <script>
+    console.log("Hello Ramda");
+    console.log("R.identity :",R.identity(4));
+
+    console.log("Range :",R.range(1,4));
+
+    const equal3 = R.equals(3)
+    console.log(equal3(3,3));
+    const equal1 = R.equals(1);
+    let arr1 = [1,1,1]
+    let arr = [3,3,3,3];
+    console.log(R.all(equal3)(arr));
+    console.log(R.all(equal1)(arr1));
+
+    const merageThree = (a,b,c) => [a,b,c];
+    console.log(merageThree(1,2,3));
+
+    console.log(R.flip(merageThree)(1,2,3));
+  </script>
+</html>

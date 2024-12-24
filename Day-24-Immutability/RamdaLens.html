@@ -1,0 +1,71 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.js"></script>
+
+    <script>
+          const arr = [
+            {
+                name : "Aung Min",
+                age : 14,
+                gender : 'Male'
+            },
+            {
+                name : "Aung Naing",
+                age : 24,
+                gender : 'Male'
+            },
+            {
+                name : "Hla Hla",
+                age : 34,
+                gender : 'Female'
+            },
+            {
+                name : "Mg Hla",
+                age : 20,
+                gender : 'Male'
+            },
+        ];
+        const obj = {
+            name : 'ZYH',
+            age : 10,
+            arr : [100,200],
+            display(){
+                console.log("Hello, World");
+            },
+            address : {
+                city : 'ygn'
+            }
+            
+        }
+
+        const x2 = x => x*2;
+        // lens
+        const ageLens = R.lens(R.prop('age'),R.assoc('age'));
+        console.log(R.view(ageLens,obj));
+        //immutable
+        console.log("Obj :",R.set(ageLens,19,obj));
+
+        let obj2 = R.over(ageLens,x2,obj);
+        console.log("Obj2 : ",obj2);
+
+        const nameLens = R.lens(R.prop('name'),R.assoc('name'));
+        console.log("Name Lengs",R.over(nameLens,R.toLower,obj));
+
+        // 
+        const AgeLens = R.lensProp('age');
+
+
+        // lenspath 
+
+        const lenPaths = R.lensPath([0,'age']);
+        console.log("R.over", R.over(lenPaths,R.inc,arr));
+
+        // small function power
+        const firstLen = R.lensProp(0);
+        const nameLen =R.lensProp('name');
+
+        // order left to right
+
+        const composeLens = R.compose(firstLen,nameLen);
+        console.log("R.view :",R.view(composeLens,arr));
+</script>
+</html>

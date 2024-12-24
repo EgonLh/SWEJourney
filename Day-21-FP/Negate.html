@@ -1,0 +1,20 @@
+<html>
+    <script>
+        let arr = [1,2,3,4,5]
+
+        const unary = fn => (...args) =>fn(args[0]); //unary - arity changing
+        const isEven = (x) => x%2 == 0;
+
+        const not = (fn) =>(...x)=>!fn(...x); //negate
+        const isOdd= not(isEven);
+        console.log("OddList :",arr.filter(isOdd));
+
+
+        let arr2 = ['1','2','3','4','5']
+        console.log("ParseInt",arr2.map(parseInt));//problem
+
+        // solved
+        console.log("ParseInt",arr2.map(unary(parseInt)));//problem
+
+    </script>
+</html>

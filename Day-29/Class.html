@@ -1,0 +1,113 @@
+<html>
+    <script>
+        console.log("Class");
+
+        let obj = {
+            name : "ZYH",
+            age : 20,
+            display(){
+                console.log("Name :",this.name, " Age ",this.age);
+            }
+        }
+
+        obj.display()
+
+        // With Class
+        class Human
+        {
+            constructor(name,age)
+            {
+                console.log("Constructor");
+                this.name = name;
+                this.age = age
+            }
+
+            display()
+            {
+                console.log("Name :",this.name, " Age ",this.age);
+
+            }
+        }
+
+
+        let h1 = new Human('ZYH',19)
+        let h2 = new Human('Zayar',20)
+
+        h1.display()
+        h2.display()
+
+        console.log("H1: ",h1);
+        console.log("H2: ",h2);
+
+
+
+        // constructor with Function before es6
+        function Humans(name,age){
+            this.name = name;
+            this.age=  age;
+            this.display = function()
+            {
+                console.log("Name :",this.name, " Age ",this.age);
+
+            }
+
+        }
+
+        let h3 = new Humans("TK",30);
+        h3.display()
+
+
+        // h1constructor
+        console.log("H1 constructor :",h1.constructor == Human);
+
+        // function mar prototype 
+        console.log("H3 Prototype", Humans);
+
+
+
+        // inheritence
+
+        class Teacher extends Human
+        {
+            constructor(name,age,school){
+                console.log("Hello,"); // can't in Java
+                super(name,age);
+                this.school = school;
+                console.log("Name :",this.name);
+                console.log("Age :",this.age);
+                console.log("School :",this.school);
+
+
+            }
+
+            display(){
+                console.log("Modified Property");
+                super.display();
+            }
+
+            // static
+            static staticMethod()
+            {
+                console.log("Static Method :", this.name);
+                console.log("Static Method :", this.age);
+
+            }
+        }
+
+        T1 = new Teacher("TK",40,"Turing");
+        T1.display()
+
+
+        // Instance Of
+        console.log("Instance of Teacher  :" ,T1 instanceof Teacher);
+
+        console.log("Instance of Human :" ,T1 instanceof Human);
+
+        console.log("Instance of Date :" ,T1 instanceof Date);
+
+        // Static Method
+    // T1.staticMethod() - error
+    Teacher.staticMethod()
+
+    </script>
+</html>

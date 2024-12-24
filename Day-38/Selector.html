@@ -1,0 +1,42 @@
+<html>
+    <style>
+        #container{
+            background-color: violet;
+        }
+    </style>
+    <body>
+        <div id="parent" class="class_name">
+            Parent
+            <div id="container" class="class_name">
+                Container
+            </div>
+            <button type="button" id="btnTrigger">Trigger</button>
+            <div class="class_2">
+                Child,
+                <div class="_selector_"></div>
+                <span>+ selector</span>
+                <h1>Child Selector</h1>
+            </div>
+
+        </div>
+    </body>
+    <script>
+        let container  = document.querySelector('#container')
+        container.style.backgroundColor = "blue"
+
+        console.log('all div :',document.querySelectorAll('div'));
+
+        let class_names = document.querySelectorAll('.class_name')
+        console.log(".class_name :",class_names);
+
+        console.log("Nested Slector :",document.querySelectorAll('div.class_2'));
+
+        console.log("Universal :",document.querySelectorAll("*"));
+
+        console.log("+ Selector :",document.querySelectorAll("div+span"));
+
+        console.log("< Combinator Selector :",document.querySelectorAll("div>*"));
+
+
+    </script>
+</html>

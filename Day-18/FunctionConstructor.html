@@ -1,0 +1,25 @@
+<html>
+    <script>
+        function Human(name)
+        {
+            this.name = name;
+            this.display = function()
+            {
+                console.log("Hello, I am ", this.name);
+            }
+        }
+        
+        function student()
+        {
+        }
+
+        let obj = new Human("Egon");
+        obj.display()
+        console.log(Human.__proto__);
+
+        // parent
+        student.prototype = new Human("ZYH");
+        let student_ = new student();
+        student_.display()
+    </script>
+</html>

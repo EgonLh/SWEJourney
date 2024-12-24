@@ -1,0 +1,55 @@
+<html>
+    <script>
+        console.log("Class Based Model");
+
+        class Base 
+        {
+            data = [100]
+        }
+
+        class Child extends Base
+        {
+            another = 'data';
+        }
+
+        let obj = new Child();
+        console.log("Class based model :Obj ",obj);
+
+
+        let obj_base = {
+            data : [100]
+        }
+        let child = Object.create(obj_base);
+        child.another = 'data';
+
+
+        let obj2 = Object.create(child);
+        console.log("Prototype Based Model :",obj2);
+        obj2.data.push(200);
+        obj.data.push(200)
+        console.log("Prototype Based Model :",obj2);
+        console.log("Class based model :Obj ",obj);
+        console.log("GetObjectOwn",Object.getOwnPropertyNames(obj));
+
+        console.log(Base);
+        console.log(obj_base);
+
+
+        let child1 = Object.create(obj_base);
+        console.log("Parent 1:",child1.arr);
+
+        let anotherParent = {
+            arr:['hello']
+        }
+
+        Object.setPrototypeOf(child1,anotherParent);
+        console.log("Parent 2 :",child1.arr);
+
+        let obj3 = {
+            __proto__:anotherParent
+        }
+
+        console.log("Obj3 :",obj3.arr);
+
+    </script>
+</html>

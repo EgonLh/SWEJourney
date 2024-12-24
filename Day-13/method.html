@@ -1,0 +1,57 @@
+<html>
+    <script>
+        console.log("Method");
+        let point = {
+            x:10,
+            y:90,
+            display(){
+                console.log("Point :x :",this.x,"y:",this.y);
+            },
+             toJSON()
+            {
+                console.log("JSON.stringify Invoked");
+                return {
+                    posX : this.x,
+                    posY : this.y,
+                }
+            }
+        }
+
+
+        point.display();
+
+
+        // Can Build datastructure
+        let stack = {
+            token : [],
+            push(element)
+            {
+                this.token.push(element);
+            },
+            pop()
+            {
+                return this.token.pop();
+            },
+           
+        }
+        stack.push("A");
+        stack.pop();
+        stack.push("B");
+        stack.push("C");
+
+        console.log("Stack :",stack);
+
+        console.log("ToJSON :", JSON.stringify(point));
+
+
+        console.log("Short Handed");
+        let a = 1,b = 2;
+        // let o = {
+        //     a:a,
+        //     b:b
+        // }
+        let o = {a,b}
+
+        console.log(o.a + o.b);
+    </script>
+</html>

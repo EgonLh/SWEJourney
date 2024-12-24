@@ -1,0 +1,25 @@
+<html>
+    <script>
+        console.log("Function Call");
+
+        function first()
+        {
+            console.log("First Invode");
+            let secondResult = second();//->
+            console.log("Second Result", secondResult);//<-
+        }
+        function second()
+        {
+            console.log("Second Invode");
+            let thirdResult = third();//->
+            console.log("Third Result", thirdResult);
+            return 100 + thirdResult;//<-
+        }
+        function third()
+        {
+            console.log("Third Invode");
+            return 20;//<-
+        }
+        first()
+    </script>
+</html>

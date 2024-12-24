@@ -1,0 +1,39 @@
+<html>
+    <body>
+        <div id="parent" class="class_1">
+            <div id="child" class="class_2">
+                Hello, World
+            </div>
+            <div id="another">
+                Another
+            </div>
+            <div id="other">
+                Other
+            </div>
+        </div>
+    </body>
+    <script>
+        let node  = document.getElementById('child');
+        console.log("Node's Parent :",node.parentNode);
+        console.log("Child's Node[children]  :",document.body.children);
+        console.log("Child's Count  :",document.body.childElementCount);
+        console.log("Child's Node  :",document.body.childNodes);
+        console.log("First Element's Child  :",document.body.firstElementChild);
+        console.log("Last  Element's Child  :",document.body.lastElementChild);
+        console.log("Child's Node  :",document.body.childNodes);
+        console.log("First Element's Child  :",document.body.firstChild);
+        console.log("Last  Element's Child  :",document.body.lastChild);
+
+
+        let another = document.getElementById('another');
+        console.log("Another Prev Sibling:",another.previousElementSibling);
+        console.log("Next Element Sibling:",another.nextElementSibling);
+
+        console.log("Node.name :",node.nodeName);
+        console.log("Node.name :",node.nodeType);
+
+
+
+
+    </script>
+</html>

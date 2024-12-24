@@ -1,0 +1,38 @@
+<html>
+    <script>
+        console.log("Character Classess");
+
+        let reg;
+
+        reg = /[^xyz]+/
+
+        console.log(reg,"x :",reg.test('x'));
+        console.log(reg,"y :",reg.test('y'));
+        console.log(reg,"a :",reg.test('a'));
+
+        reg = /p.$/
+
+        console.log(reg,"ps :",reg.test('ps'));
+        console.log(reg,"ds :",reg.test('ds'));
+        console.log(reg,"p  :",reg.test('p'));
+        console.log(reg,"looph  :",reg.test('looph'));
+        console.log(reg,"loop\n  :",reg.test('loop\n'));
+
+        // \d = digit
+        reg = /\d{9,10}/
+        console.log(reg,'092232323 :',reg.test('092232323'));
+        console.log(reg,'09223 :',reg.test('09223'));
+
+
+         // \D = non-digit - partial match
+        //  excapt map ==> ^ $
+         reg = /\D{5}/
+        console.log(reg,'092323 :',reg.test('092323'));
+        console.log(reg,'acvdd :',reg.test('acvdd'));
+        console.log(reg,'092 :',reg.test('092'))
+        
+
+
+
+    </script>
+</html>

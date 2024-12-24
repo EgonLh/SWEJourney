@@ -1,0 +1,73 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.js"></script>
+
+    <script>
+        console.log("Ramda ")
+        // factorial by code
+        const fact = (n) => 
+                        R.reduce(R.multiply,1,R.range(1,n+1));
+
+        console.log("Factor",fact(5));
+
+
+        // head, tail
+        a = [1,2,3,4,5]
+        console.log("Head",R.head(a));        
+        console.log("Tail :",R.tail(a));
+
+        // factorial recursutve
+        const sum = list => {
+            // empty 
+            // if(R.isEmpty(R.tail(list)))
+            // {
+            //     // console.log("Head :",R.head(list));
+            //     return R.head(list);
+            // }else
+            // {
+            //     // console.log("Org :",list);
+            //     return R.head(list)+sum(R.tail(list))
+            // }
+            return R.ifElse(
+                R.pipe(R.tail,R.isEmpty),
+                R.head,
+                R.converge(
+                    R.add,[
+                        R.head,
+                        R.pipe(
+                            R.tail,
+                            sum
+                        )
+                    ]
+                )
+                
+
+            )(list);
+        }
+
+        console.log("Sum ",sum(a));
+
+
+        // (*… → Boolean) - predicate function
+
+        //tab
+        const sayHello = x => console.log("Hello , "+ x);
+        R.tap(sayHello,"ZYH");
+
+        // all
+        const equal1 = R.equals(1);
+        const lessThan2 = R.flip(R.lt)(2);
+
+        console.log(equal1(1));
+        console.log(equal1([1,1,1]));
+
+        console.log("ALL :",R.all(equal1,[1,1,1,1]));
+        console.log("ALL :",R.all(equal1,[1,2,1,1]));
+        
+        // return 2 less than one element is match the prdicate
+        console.log("Any : ",R.any(lessThan2,[1,2,3,6]));
+        console.log("Any : ",R.any(lessThan2,[3,3,3,3]));
+
+
+
+    </script>
+</html>

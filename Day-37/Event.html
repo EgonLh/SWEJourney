@@ -1,0 +1,49 @@
+<html>
+    <style>
+        #container{
+            height: 50px;
+            background-color: blue;
+        }
+    </style>
+    
+    <body>
+    <div id="parent">
+        Parent
+        <div id="container">
+            Container
+        </div>
+    </div>
+    </body>
+    <script>
+        document.body.addEventListener('click',(event)=>{
+            console.log(event);
+        })
+
+        document.body.addEventListener('contextmenu',(event)=>{
+            console.log("Left Menu :",event);
+        })
+
+        // document.body.addEventListener('mousemove',(event)=>{
+        //     console.log("MouseMove :",event);
+        // })
+        document.getElementById('container').addEventListener('click',(event)=>
+    {
+        console.log("Click Container :",event);
+    })
+    document.getElementById('container').addEventListener('click',(event)=>
+    {
+        console.log("Click Container Hander2 :",event);
+    })
+
+    document.getElementById('parent').addEventListener('click',function(event){
+    if(event.target  !== this)
+    {
+        console.log("Not From Parent,Fired By Child ",event.target);
+    }
+    else
+    {
+        console.log("From This Parent:",this);
+    }
+})
+    </script>
+</html>

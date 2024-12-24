@@ -1,0 +1,127 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.js"></script>
+
+    <script>
+        // constant
+        const  a = 10;
+
+        const obj = {
+            name : 'TK',
+            age : 10,
+            arr : [100,200],
+            display(){
+                console.log("Hello, World");
+            }
+        }
+
+        obj.name = "ZYH";
+
+        console.log(obj);
+
+        // Object.freeze(obj)
+        // obj.age=  20;
+
+        // console.log("Freeze :",obj);
+
+
+        //clone
+        let shallow = {...obj};
+        shallow.arr.push(300);
+        console.log(shallow);
+        console.log("Obj ",obj);
+
+        // cause reference semetic
+
+        // use deepcloe
+
+        let str = JSON.stringify(obj);
+        let deepObj = JSON.parse(str);
+
+        deepObj.arr.push(400);
+
+        console.log("Deep ",deepObj);
+        console.log("Original ",obj);
+
+        // getter and setter
+
+        let obj4 = {
+            _name : "Zayar htun",
+            get name(){
+                console.log("Name :",this._name);
+            },
+            set name(input){
+                this._name = input;
+            }
+            ,age : 0,
+            address: {
+                city : "Pyay",
+            }
+        }
+
+
+        console.log("Before Get and set",obj4);
+        obj4.name = "Egon";
+        console.log("After Get and set",obj4);
+
+        // get
+        obj4.name;
+        
+        // composition form
+        const getFiled = attr => obj => obj[attr];
+        
+        const getAge = getFiled('age'); //partial application
+        console.log("Get Age",getAge(obj4));
+
+        const another = {
+            age : 100
+        }
+
+        console.log("getAge",getAge(another));
+
+        // console.log("Test");
+        // const test = x => b => a*b;
+
+        // let ans = test(1:x);
+        // console.log(ans(5));
+
+        console.log("By Path",obj4?.address?.city);
+
+
+        const getByPath = (arr,obj)=> {
+            if(arr[0] in obj){
+                console.log("Steps :",arr);
+                return arr.length > 1
+                    ? getByPath(arr.slice(1), obj[arr[0]])
+                    : {...obj,[arr[0]]:obj[arr[0]]};
+            }else{
+                return undefined;
+            }
+        }
+
+        console.log("Addres :",getByPath(['address','city'],obj4));
+
+        // error
+        // obj.address.city = "Ygn";
+
+
+        // set by pass
+        // [address,city]
+        const setByPath  = (arr,value,obj) => {
+            if(!(arr[0] in obj)){
+                obj[arr[0]] = arr.length === 1 ? null : Number.isInteger(arr[1]?[]:{});
+
+            }
+            if(arr.length > 1){
+                return setByPath(arr.slice(1),value,obj[arr[0]]);
+
+            }else {
+                obj[arr[0]] = value;
+                return obj;
+            }
+        }
+
+        setByPath(['address','city'],'ygn',obj4);
+
+        console.log(obj4);
+    </script>
+</html>

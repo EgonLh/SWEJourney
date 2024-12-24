@@ -1,0 +1,31 @@
+<html>
+    <script>
+        function factorial(n){
+            console.log("N" , n);
+            if(n==0)
+            {
+                return 1
+            }else
+            {
+                // reuse factorial()
+                return n * factorial(n-1); //3 * factorial(2) -> ....
+            }
+        }
+
+        console.log("Factorial : 4 =",factorial(4));
+
+
+        function tax(n){
+            console.log("Original Tax :",n);
+            if(n == 0)
+            {
+                return 0
+            }else
+            {
+                return n + tax(n-1);
+            }
+        }
+
+        console.log("Tax :",tax(8));
+    </script>
+</html>

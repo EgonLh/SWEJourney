@@ -1,0 +1,99 @@
+<html>
+    <!-- Ramda -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.js"></script>
+
+    <script>
+        let obj = {
+            username : "ZYH",
+            email : "person@gmail.com"
+        };
+
+        const notEmpty = (str) => str.length > 0;
+        const minLength = length => str => str.length >= length;
+        const maxLength = length => str => str.length <= length;
+        const validEmail = str => str.includes('@') && str.includes('gmail.com'); //should make with regular expression
+        
+
+        /*
+        console.log( "Max Lenght :",maxLength(3)('Hello'));
+        console.log( "Min Lenght :",minLength(3)('Hello'));
+        console.log("Valid Email :",validEmail("Hello@"));
+        console.log("Valid Email :",validEmail("Hello@gmail.com"));
+        */
+
+        const userNameNotEmpty = (obj) => notEmpty(obj.username);
+        const userNameMinLength = (obj) => minLength(3)(obj.username);
+        const userNameMaxLength = (obj) => maxLength(5)(obj.username);
+        const userEmailValid = (obj) => validEmail(obj.email);
+
+        const And = {
+            concat :(a,b) => a && b,
+            empty :()=>true
+        }
+
+        const Or = {
+            empty :() =>false,
+            concat:(a,b) =>a || b,
+        }
+
+        // combinator(AND) -- reusable
+        function combinator (monoid)
+        {
+            return function(...validators)
+            {
+                return function(input)
+                {
+                    let accumulator = monoid.empty();
+                    for(const validator of validators)
+                    {
+                        accumulator = monoid.concat(validator(input),accumulator);
+                    }
+                    return accumulator;
+                }
+            }
+        }
+
+        // start combinator
+        let AndCombinator = combinator(And);
+        let userNameNotEmptyANDuserEmailValid = AndCombinator(userNameNotEmpty,userEmailValid);
+        
+        // result
+        console.log("Result :",userNameNotEmptyANDuserEmailValid({
+            username:"ZH",
+            email:'me@gmail.com'
+        }));
+
+        console.log("ANDResult :",userNameNotEmptyANDuserEmailValid({
+            username:"ZH",
+            email:'me@.com'
+        }));
+
+        // or combinator
+        let OrCombinator = combinator(Or);
+        let userNameNotEmpty_OR_userEmailValid = OrCombinator(userNameNotEmpty,userEmailValid);
+
+        // result
+        console.log("Result :",userNameNotEmpty_OR_userEmailValid({
+            username:"ZH",
+            email:'me@.com'
+        }));
+        console.log("ORResult :",userNameNotEmpty_OR_userEmailValid({
+            username:"d",
+            email:'me.com'
+        }));
+
+
+        // complex combinator
+        let complexCombinator = AndCombinator(userEmailValid,OrCombinator(userNameMinLength,userNameMaxLength));
+        console.log("Complex Combinator :",complexCombinator({
+            username:"zyh",
+            email:'person@gmail.com'
+        }));
+        console.log("Complex Combinator :",complexCombinator({
+            username:"zyh",
+            email:'person@.com'
+        }));
+
+        
+    </script>
+</html>

@@ -1,0 +1,38 @@
+<html>
+  <script>
+    console.log("Subarray");
+
+    let arr = [1, 2, 3, 4, 5];
+    console.log("Original Slice :", arr);
+    let slice1 = arr.slice(0, 4);
+
+    console.log("Slice One : ", slice1);
+
+    let slice2 = arr.slice(1);
+    console.log("Slice with one parameter", slice2);
+
+    // <!-- splice() -->
+    let newArr = [1, 2, 3, 4];
+    newArr.splice(1, 1);
+    console.log(newArr);
+
+    // with delete
+    delete newArr[0];
+    console.log("New Arr With Delete :", newArr);
+
+    newArr.splice(0, 1);
+    console.log("New Arr With Splice :", newArr);
+
+    // Use Case
+    let names = ["Mg Mg", "Aung Aung", null, "Thaw Thaw"];
+    console.log(" Names : ", names);
+    let removedName = names.splice(names.indexOf(null), 1);
+    console.log("Without Null :", names);
+    console.log("Removed Null :", removedName);
+
+    // Splice Insert
+    let arr2 = [1,2,3,4];
+    arr2.splice(1,1,100,200);
+    console.log(arr2);
+  </script>
+</html>

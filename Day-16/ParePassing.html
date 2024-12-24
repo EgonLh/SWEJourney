@@ -1,0 +1,41 @@
+<html>
+    <script>
+        console.log("Parameter passing");
+
+        function change(x)
+        {
+            return x++;
+        }
+        let data = 10;
+        change(data);
+
+        console.log( "Data ",data);
+        
+
+        function changeObj (obj)
+        {
+            return obj.x++;
+        }
+        
+        let ObjA = {
+            x : 100,
+        }
+
+        changeObj(ObjA);
+        console.log("Change Obj :",ObjA);
+
+        // another case
+        function changeObjProp(obj){//obj = ObjA
+            obj = {//obj != ObjA => two different obj
+                x:2000,
+            }
+
+            console.log(obj);
+        }
+
+        changeObjProp(ObjA);//obj = ObjA
+        console.log(ObjA);
+
+        
+    </script>
+</html>

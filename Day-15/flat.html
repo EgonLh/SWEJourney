@@ -1,0 +1,31 @@
+<script>
+  console.log("--Flat--");
+
+  let arr = [1, 2, 3];
+  let arrMap = arr.map((x) => [x, x * 2]);
+
+  console.log("Array Map :", arrMap); //return transformed array -> nested array
+
+  let arrflat = arrMap.flat();
+
+  console.log("Array flat:", arrflat);
+
+  console.log("--FlatMap--");
+
+  let mapFlatArr = arr.flatMap((x) => [x, x * 2]);
+  console.log("Mapped Flat Array :", mapFlatArr);
+  //   let strarr = ["Hello", "World", "JavaScript"];
+  //   let strarrMap = strarr.map((x) => [x, x.length]);
+  //   console.log('test :',strarrMap);
+
+  let nested_arr = [
+    [1, 2],
+    [1, [2, 3]],
+    [1, [2, 3]],
+  ];
+  let nested3_flat = nested_arr.flat();
+  console.log("Flatted x 3 :", nested3_flat);
+
+  let leveled_flat = nested_arr.flat(2);
+  console.log("Leveled flat:", leveled_flat);
+</script>

@@ -1,0 +1,42 @@
+<html>
+    <script>
+        function getFuns()
+        {
+            let funs =[]//outer function
+            for (let i = 0; i < 5; i++) {
+                let fun = function()
+                {
+                    console.log("Func i ", i);//i is using outer functions
+                }
+                funs.push(fun)
+                
+            }
+            console.log(funs);
+            return funs;
+        }
+        let funs = getFuns();
+        let a = funs[0]()
+        console.log(a);
+        funs[1]()
+        
+        // function test()
+        // {
+        //     let ppl = []
+        //     console.log("Outer function :",ppl);
+
+        //     function add(element)
+        //     {
+        //         ppl.push(element);
+        //         console.log("Inner Function:", ppl);  
+        //     }
+        //     return {add};
+        // }
+
+        // let a = test();
+
+        // // 
+        // console.log("stage 1");
+        // a.add("A");
+        // console.log(a);
+    </script>
+</html>

@@ -1,0 +1,105 @@
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.29.1/ramda.js"></script>
+    <script>
+        const  inc = x => x+1;
+        const double = x => x*2;
+
+        let Container = (value) => ({
+            map(fn)
+            {
+                return Container(fn(value))
+            },
+            valueOf()
+            {
+                return value;
+            },
+            unwrap()
+            {
+                return value;
+            },
+            chain(fn)
+            {
+                return this.map(fn).unwrap();
+            }
+        });
+
+        Container.of = Container;
+
+        let Nothing = (value) => ({
+            map(fn){
+                return this;
+            },
+            isNothing(){
+                return true;
+            },
+            valueOf()
+            {
+                return value;
+            },
+            orElse(defaultValue){
+                return Just(defaultValue);
+
+            }
+            
+        });
+
+        Nothing.of = Nothing
+
+        let Just = (value) => ({
+            map(fn){
+                return Maybe.of(fn(value));
+            },
+            isNothing(){
+                return false;
+            },
+            valueOf()
+            {
+                return value;
+            },
+            orElse(defaultValue){
+                return this;
+
+            },justTest(){
+                console.log("test");
+            },
+            chain(fn)
+            {
+                return this.map(fn).unwrap();
+            }
+        });
+       
+        Just.of = Just;
+
+        let Maybe = (value) = value => (value == isNaN(value)|| value === undefined || value === null)
+                                    ?Nothing.of(value):Just.of(value);
+        Maybe.of = Maybe;
+
+        let employee = [
+            {
+                name : "Emp1",
+            }
+        ]
+        function getEmp(id)
+        {
+            return Maybe.of(employee[id]);
+        }
+
+        // Error Case
+        // Container.of(0)
+        //             .map(getEmp)//container(May.of(undefined))
+        //             .map(emp=>emp.name)
+        //             .map(console.log)
+
+        // Container.of(0)
+        //             .map(getEmp)//container(May.of(undefined))
+        //             .unwrap()
+        //             .map(emp=>emp.name)
+        //             .map(console.log)
+
+        // Final Stage
+        Container.of(0)
+                    .chain(getEmp)
+                    .map(emp=>emp.name)
+                    .map(console.log)
+    </script>
+</html>

@@ -1,0 +1,46 @@
+<html>
+    <script>
+        console.log("function Invocation :");
+
+        function hello()
+        {
+            console.log("Hello, World");
+            return null;
+        }
+        // 
+        console.log("functionally Inovcation :");
+        hello()
+
+        console.log("conditionally Inovcation :");
+
+        let func = hello();
+        // problem
+        // func();
+
+        // old solution
+        // func && func();
+
+        // In ES62020
+        func?.();
+
+        console.log("Method Invocation");
+        let obj = {
+            name: "ZYH",
+            display()
+            {
+                console.log("Method Invoked - ",this.name," -State");
+            }
+        }
+
+        obj.display();
+
+
+        // method_chainging
+        let arr = [1,2,3,4,5];
+
+        function greaterThanTwo(num){
+            return num<2;
+        }
+        console.log("Chaing",arr.filter(x=>greaterThanTwo(x)).map(x=>x*3));
+    </script>
+</html>

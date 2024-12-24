@@ -1,0 +1,42 @@
+<html>
+    <script>
+        let objectt = {
+            x : 100,
+            y : 200,
+            [Symbol('name')]:'Hello',
+        }
+
+        let obj  = Object.create(objectt);
+        obj.z = 300;
+        console.log("From Object's Parent :",obj.x);
+        console.log("In Object , ",obj.z);
+        console.log(obj);
+
+
+        // Test
+        console.log("x in obj :","x" in obj);
+        console.log("d in obj :","d" in obj);
+
+        // hasOwnProp
+        console.log("'x' hasOwnProps :",obj.hasOwnProperty("x"));
+        console.log("'z' hasOwnProps :",obj.hasOwnProperty("z"));
+
+        // Enumerable
+        console.log("toString enumerable :",obj.propertyIsEnumerable('toString'));
+        console.log("x enumerable :",obj.propertyIsEnumerable('x'));
+        console.log("z enumerable :",obj.propertyIsEnumerable('z'));
+
+
+        for(let x in obj){
+            console.log(x);
+        }
+        
+       console.log("Object's Key :",Object.keys(obj));
+       console.log(Object.getOwnPropertyNames(Object));
+       console.log(objectt);
+       console.log("Get Own Properties Symbol : ",Object.getOwnPropertySymbols(objectt));
+       console.log("Refect Own keys parent :",Reflect.ownKeys(objectt));
+
+    </script>
+</html>
+

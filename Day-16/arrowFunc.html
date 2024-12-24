@@ -1,0 +1,40 @@
+<html>
+    <script>
+        console.log("Arrow Function");
+
+        // simple func
+        function simpleFunc(a,b)
+        {
+            return a + b;
+        }
+
+        let sum1 = simpleFunc(1,2);
+        console.log("Simple Func :", sum1);
+
+        let lambdaFunc = (a,b) => a + b;
+        console.log("Lambda func, arrow func :",lambdaFunc(1,2));
+
+        let morethanone = (a,b)=>{
+            console.log( " More then One Line form func ");
+            return a + b;
+        }
+
+        console.log("More then one line with arrow func :",morethanone(1,2));
+
+
+        // Object Return Simple
+        function objRet(name){
+            return {name};
+        }
+
+        let test = objRet("Kimm");
+        console.log(test);
+
+        // Object Return Arrow
+        // let objReturn = (name)=>{name}; 
+        let objReturn = (name)=>({name});//({}) 
+
+        console.log(objReturn("Hee"));
+
+    </script>
+</html>

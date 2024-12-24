@@ -1,0 +1,46 @@
+<html>
+    <script>
+        // console.log("Network Event");
+
+        function getToDo(url,callback)
+        {
+            let request = new XMLHttpRequest();
+            request.open('GET',url);
+            request.send();
+            request.onload=function()
+            {
+                if(request.status == 200) //successed
+                {
+                    callback(request.responseText);
+                }
+            }
+            console.log("Done!");
+        }
+
+        let result = [];
+
+        function callback(data)
+        {
+            result.push(data)
+            if(result.length==3)
+            {
+                console.log("All Done :",result);
+            }
+        }
+
+        getToDo('https://jsonplaceholder.typicode.com/todos/1',callback)
+
+        getToDo('https://jsonplaceholder.typicode.com/todos/2',callback)
+
+        getToDo('https://jsonplaceholder.typicode.com/todos/3',callback)
+
+        
+        // getToDo('https://jsonplaceholder.typicode.com/todos/1',(first)=>{
+        //     getToDo('https://jsonplaceholder.typicode.com/todos/2',(second)=>{
+        //         getToDo('https://jsonplaceholder.typicode.com/todos/3',(third)=>{
+        //             console.log("First :",first, " Second :",second , "Third :",third);
+        //         })
+        //     })
+        // })
+    </script>
+</html>

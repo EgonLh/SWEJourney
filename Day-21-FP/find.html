@@ -1,0 +1,20 @@
+<html>
+<script>
+    
+// array find
+let arr = [1,2,3,4,5,6,7]
+const gtFive = (x) => x>5;
+console.log("Find :",arr.find(gtFive));
+const find = (arr,predicate)=>arr.reduce((a,b)=>
+     a===undefined && predicate(b) ? b : a
+     , undefined
+)
+console.log(find(arr,gtFive));
+
+const findIndex = (arr,predicate)=>arr.reduce((a,b,index)=>
+     a===-1 && predicate(b) ? index : a
+     , -1
+)
+console.log("Index :",findIndex(arr,gtFive));
+</script>
+</html>
