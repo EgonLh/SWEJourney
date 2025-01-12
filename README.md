@@ -1,4 +1,4 @@
-### Progress For Turing Courses
+### Progress For Turing Course
 
 `[x] Day 1`\
 `[x] Day 2`\
